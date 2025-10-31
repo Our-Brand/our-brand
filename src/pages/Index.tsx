@@ -1,4 +1,4 @@
-import logo from "@/assets/logo.jpeg";
+import logo from "@/assets/logo.png";
 const Index = () => {
   return <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-background">
       {/* Gradient background overlay */}
@@ -23,7 +23,11 @@ const Index = () => {
           <div className="relative">
             {/* Glow effect behind logo */}
             <div className="absolute inset-0 blur-3xl opacity-50 bg-gradient-brand rounded-full scale-110" />
-            
+            <img 
+              src={logo} 
+              alt="Our Brand Logo" 
+              className="relative z-10 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain drop-shadow-glow"
+            />
           </div>
         </div>
         
