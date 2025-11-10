@@ -4,9 +4,18 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin, Linkedin, Users, Target, Heart } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Users, Target, Heart, Globe } from "lucide-react";
+import { useState } from "react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Index = () => {
+  const [language, setLanguage] = useState<'en' | 'pt'>('en');
+  
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -19,21 +28,56 @@ const Index = () => {
           <img src={logo} alt="Logo" className="h-10 w-10 object-contain" />
           
           <div className="hidden md:flex gap-8">
-            <button onClick={() => scrollToSection('hero')} className="text-foreground/80 hover:text-primary transition-colors">Home</button>
-            <button onClick={() => scrollToSection('mission')} className="text-foreground/80 hover:text-primary transition-colors">Mission</button>
-            <button onClick={() => scrollToSection('team')} className="text-foreground/80 hover:text-primary transition-colors">Team</button>
-            <button onClick={() => scrollToSection('contact')} className="text-foreground/80 hover:text-primary transition-colors">Contact</button>
+            <button onClick={() => scrollToSection('hero')} className="text-foreground/80 hover:text-primary transition-colors">
+              {language === 'en' ? 'Home' : 'Início'}
+            </button>
+            <button onClick={() => scrollToSection('mission')} className="text-foreground/80 hover:text-primary transition-colors">
+              {language === 'en' ? 'Mission' : 'Missão'}
+            </button>
+            <button onClick={() => scrollToSection('team')} className="text-foreground/80 hover:text-primary transition-colors">
+              {language === 'en' ? 'Team' : 'Equipa'}
+            </button>
+            <button onClick={() => scrollToSection('contact')} className="text-foreground/80 hover:text-primary transition-colors">
+              {language === 'en' ? 'Contact' : 'Contacto'}
+            </button>
           </div>
 
-          {/* Sticky Calendly Button */}
-          <a 
-            href="https://calendly.com/your-link" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="bg-gradient-brand text-primary-foreground px-6 py-2 rounded-lg font-medium hover:opacity-90 transition-opacity shadow-lg"
-          >
-            Book a Call
-          </a>
+          <div className="flex items-center gap-4">
+            {/* Language Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="sm" className="gap-2">
+                  <Globe className="h-4 w-4" />
+                  <span className="hidden sm:inline">{language === 'en' ? 'English' : 'Português'}</span>
+                  <span className="sm:hidden">{language.toUpperCase()}</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="bg-popover border-border">
+                <DropdownMenuItem 
+                  onClick={() => setLanguage('en')}
+                  className="cursor-pointer hover:bg-accent"
+                >
+                  🇬🇧 English
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  onClick={() => setLanguage('pt')}
+                  className="cursor-pointer hover:bg-accent"
+                >
+                  🇵🇹 Português (PT)
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            {/* Sticky Calendly Button */}
+            <a 
+              href="https://calendly.com/your-link" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-gradient-brand text-primary-foreground px-6 py-2 rounded-lg font-medium hover:opacity-90 transition-opacity shadow-lg"
+            >
+              {language === 'en' ? 'Book a Call' : 'Agendar Chamada'}
+            </a>
+          </div>
         </div>
       </nav>
 
