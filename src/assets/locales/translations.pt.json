@@ -49,6 +49,9 @@
   "contact.form.messageLabel": "Mensagem",
   "contact.form.messagePlaceholder": "Fale-nos sobre o seu projeto...",
   "contact.form.submit": "Enviar Mensagem",
+  "contact.form.sending": "A enviar...",
+  "contact.form.successMessage": "Sucesso! A sua mensagem foi enviada.",
+  "contact.form.errorMessage": "Ups! Algo correu mal. Por favor, tente novamente.",
 
   "contact.info.title": "Informações de Contacto",
   "contact.info.subtitle": "Encontre-nos através destes canais",
@@ -63,7 +66,7 @@
 
   "privacy.backToHome": "Voltar ao Início",
   "privacy.title": "Política de Privacidade",
-  "privacy.lastUpdated": "Última atualização: novembro de 2024",
+  "privacy.lastUpdated": "Última atualização: novembro de",
 
   "privacy.section1.title": "1. Informações que Recolhemos",
   "privacy.section1.p1": "Recolhemos informações que nos fornece diretamente, incluindo quando cria uma conta, utiliza os nossos serviços, comunica connosco ou participa em funcionalidades interativas dos nossos serviços.",
@@ -104,7 +107,7 @@
 
   "terms.backToHome": "Voltar ao Início",
   "terms.title": "Termos & Condições",
-  "terms.lastUpdated": "Última atualização: novembro de 2024",
+  "terms.lastUpdated": "Última atualização: novembro de",
 
   "terms.section1.title": "1. Aceitação dos Termos",
   "terms.section1.p1": "Ao aceder e utilizar os nossos serviços, aceita e concorda em ficar vinculado aos termos e disposições deste acordo. Se não concorda com estes termos, não utilize os nossos serviços.",

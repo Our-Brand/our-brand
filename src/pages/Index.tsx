@@ -1,85 +1,24 @@
 import logo from "@/assets/images/logo.png";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin, Users, Target, Heart, Globe, Linkedin } from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { Mail, Phone, MapPin, Users, Target, Heart } from "lucide-react";
 
 import { useLanguage } from "@/state/LanguageProvider";
+import ContactForm from "@/components/Form";
+import Nav from "@/components/Nav";
 
 
 const Index = () => {
-  const { setLanguage, t } = useLanguage();
+  const { t } = useLanguage();
 
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
-  };
+  };  
 
   return (
     <div className="relative min-h-screen bg-background">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
-        <div className="container mx-auto px-4 h-20 flex items-center justify-between">
-          {/* Left: logo */}
-          <div className="flex items-center gap-3 flex-1 min-w-0">
-            <img src={logo} alt={t("hero.logoAlt")} className="h-16 w-16 object-contain" />
-          </div>
-
-          {/* Center: nav links */}
-          <div className="hidden md:flex gap-8 items-center flex-none">
-            <button onClick={() => scrollToSection("hero")} className="text-foreground/80 hover:text-primary transition-colors">
-              {t("nav.home")}
-            </button>
-            <button onClick={() => scrollToSection("mission")} className="text-foreground/80 hover:text-primary transition-colors">
-              {t("nav.mission")}
-            </button>
-            <button onClick={() => scrollToSection("team")} className="text-foreground/80 hover:text-primary transition-colors">
-              {t("nav.team")}
-            </button>
-            <button onClick={() => scrollToSection("contact")} className="text-foreground/80 hover:text-primary transition-colors">
-              {t("nav.contact")}
-            </button>
-          </div>
-
-          {/* Right: controls */}
-          <div className="flex items-center gap-4 justify-end flex-1 min-w-0">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="sm" className="gap-2">
-                  <Globe className="h-4 w-4" />
-                  <span className="hidden sm:inline">{t("lang.current")}</span>
-                  <span className="sm:hidden">{t("lang.short")}</span>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="bg-popover border-border">
-                <DropdownMenuItem onClick={() => setLanguage("en")} className="cursor-pointer hover:bg-accent">
-                  {t("lang.en")}
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setLanguage("pt")} className="cursor-pointer hover:bg-accent">
-                  {t("lang.pt")}
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-
-            <a
-              href="https://calendly.com/your-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gradient-brand text-primary-foreground px-6 py-2 rounded-lg font-medium hover:opacity-90 transition-opacity shadow-lg"
-            >
-              {t("cta.bookCall")}
-            </a>
-          </div>
-        </div>
-      </nav>
-
+      <Nav />
 
       {/* Hero Section */}
       <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
@@ -196,11 +135,6 @@ const Index = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-center text-muted-foreground">{member.bio}</p>
-                  <div className="flex justify-center mt-4">
-                    <a href="#" className="text-primary hover:text-primary/80 transition-colors" aria-label="LinkedIn">
-                      <Linkedin className="w-5 h-5" />
-                    </a>
-                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -220,21 +154,7 @@ const Index = () => {
                 <CardDescription>{t("contact.form.subtitle")}</CardDescription>
               </CardHeader>
               <CardContent>
-                <form className="space-y-4">
-                  <div>
-                    <Label htmlFor="name">{t("contact.form.nameLabel")}</Label>
-                    <Input id="name" placeholder={t("contact.form.namePlaceholder")} className="mt-1" />
-                  </div>
-                  <div>
-                    <Label htmlFor="email">{t("contact.form.emailLabel")}</Label>
-                    <Input id="email" type="email" placeholder={t("contact.form.emailPlaceholder")} className="mt-1" />
-                  </div>
-                  <div>
-                    <Label htmlFor="message">{t("contact.form.messageLabel")}</Label>
-                    <Textarea id="message" placeholder={t("contact.form.messagePlaceholder")} className="mt-1 min-h-[120px]" />
-                  </div>
-                  <Button className="w-full bg-gradient-brand text-primary-foreground hover:opacity-90">{t("contact.form.submit")}</Button>
-                </form>
+                <ContactForm />
               </CardContent>
             </Card>
 
@@ -296,10 +216,10 @@ const Index = () => {
               &copy; {new Date().getUTCFullYear()} Our Brand. {t("footer.rights")}
             </p>
             <div className="flex gap-6">
-              <a href="/privacy-policy" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="/privacy-policy" className="text-muted-foreground hover:text-primary transition-colors" target="_blank">
                 {t("footer.privacy")}
               </a>
-              <a href="/terms-and-conditions" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="/terms-and-conditions" className="text-muted-foreground hover:text-primary transition-colors" target="_blank">
                 {t("footer.terms")}
               </a>
             </div>

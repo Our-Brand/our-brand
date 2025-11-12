@@ -50,6 +50,9 @@
   "contact.form.messageLabel": "Message",
   "contact.form.messagePlaceholder": "Tell us about your project...",
   "contact.form.submit": "Send Message",
+  "contact.form.sending": "Sending...",
+  "contact.form.successMessage": "Sucess! Your message has been sent.",
+  "contact.form.errorMessage": "Oops! Something went wrong. Please try again.",
 
   "contact.info.title": "Contact Information",
   "contact.info.subtitle": "Find us through these channels",
@@ -64,7 +67,7 @@
 
   "privacy.backToHome": "Back to Home",
   "privacy.title": "Privacy Policy",
-  "privacy.lastUpdated": "Last updated: November 2024",
+  "privacy.lastUpdated": "Last updated: November",
 
   "privacy.section1.title": "1. Information We Collect",
   "privacy.section1.p1": "We collect information that you provide directly to us, including when you create an account, use our services, communicate with us, or participate in any interactive features of our services.",
@@ -105,7 +108,7 @@
 
     "terms.backToHome": "Back to Home",
   "terms.title": "Terms & Conditions",
-  "terms.lastUpdated": "Last updated: November 2024",
+  "terms.lastUpdated": "Last updated: November",
 
   "terms.section1.title": "1. Acceptance of Terms",
   "terms.section1.p1": "By accessing and using our services, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to these terms, please do not use our services.",
