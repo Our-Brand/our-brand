@@ -16,11 +16,20 @@ type LanguageContextValue = {
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
 export const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
+  const isBrowser = typeof window !== "undefined";
+  let tldLocale: Lang = 'en';
+  if (isBrowser) {
+    const host = window.location.hostname;
+    const tld = host.includes('.') ? host.split('.').pop() : host;
+    if (tld === 'pt') { tldLocale = 'pt'; }
+    else if (tld === 'com') { tldLocale = 'en'; }
+  }
+
   // Lazy-init from localStorage or navigator.language
   const [language, setLanguage] = useState<Lang>(() => {
-    const saved = typeof window !== "undefined" ? localStorage.getItem("language") : null;
+    const saved = isBrowser ? localStorage.getItem("language") : null;
     if (saved === "en" || saved === "pt") return saved;
-    const guess = typeof navigator !== "undefined" ? navigator.language.toLowerCase() : "pt";
+    const guess = typeof navigator !== "undefined" ? navigator.language.toLowerCase() : tldLocale;
     return guess.startsWith("pt") ? "pt" : "en";
   });
 
