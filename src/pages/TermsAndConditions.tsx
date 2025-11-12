@@ -2,126 +2,136 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+
+import enTranslations from "@/assets/locales/translations.en.json";
+import ptTranslations from "@/assets/locales/translations.pt.json";
+
+type Lang = "en" | "pt";
+type Messages = typeof enTranslations;
+const translations: Record<Lang, Messages> = { en: enTranslations, pt: ptTranslations };
 
 const TermsAndConditions = () => {
+  const [language] = useState<Lang>("pt");
+  const t = (key: string) => (translations[language] as Record<string, string>)[key] ?? key;
+
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-12">
         <Link to="/">
           <Button variant="ghost" className="mb-8">
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Home
+            {t("terms.backToHome")}
           </Button>
         </Link>
 
         <Card className="bg-card border-border shadow-[0_8px_30px_rgb(0,0,0,0.4)] max-w-4xl mx-auto">
           <CardHeader>
             <CardTitle className="text-4xl bg-gradient-brand bg-clip-text text-transparent">
-              Terms & Conditions
+              {t("terms.title")}
             </CardTitle>
-            <p className="text-muted-foreground mt-2">Last updated: November 2024</p>
+            <p className="text-muted-foreground mt-2">{t("terms.lastUpdated")}</p>
           </CardHeader>
+
           <CardContent className="prose prose-invert max-w-none">
             <div className="space-y-6 text-foreground/80">
+              {/* 1 */}
               <section>
-                <h2 className="text-2xl font-semibold text-foreground mb-3">1. Acceptance of Terms</h2>
-                <p>
-                  By accessing and using our services, you accept and agree to be bound by the terms and provision
-                  of this agreement. If you do not agree to these terms, please do not use our services.
-                </p>
+                <h2 className="text-2xl font-semibold text-foreground mb-3">
+                  {t("terms.section1.title")}
+                </h2>
+                <p>{t("terms.section1.p1")}</p>
               </section>
 
+              {/* 2 */}
               <section>
-                <h2 className="text-2xl font-semibold text-foreground mb-3">2. Use License</h2>
-                <p>
-                  Permission is granted to temporarily access our services for personal, non-commercial transitory viewing only.
-                  This is the grant of a license, not a transfer of title, and under this license you may not:
-                </p>
+                <h2 className="text-2xl font-semibold text-foreground mb-3">
+                  {t("terms.section2.title")}
+                </h2>
+                <p>{t("terms.section2.p1")}</p>
                 <ul className="list-disc pl-6 space-y-2 mt-3">
-                  <li>Modify or copy the materials</li>
-                  <li>Use the materials for any commercial purpose or public display</li>
-                  <li>Attempt to decompile or reverse engineer any software</li>
-                  <li>Remove any copyright or proprietary notations</li>
-                  <li>Transfer the materials to another person or entity</li>
+                  <li>{t("terms.section2.li1")}</li>
+                  <li>{t("terms.section2.li2")}</li>
+                  <li>{t("terms.section2.li3")}</li>
+                  <li>{t("terms.section2.li4")}</li>
+                  <li>{t("terms.section2.li5")}</li>
                 </ul>
               </section>
 
+              {/* 3 */}
               <section>
-                <h2 className="text-2xl font-semibold text-foreground mb-3">3. User Accounts</h2>
-                <p>
-                  When you create an account with us, you must provide accurate, complete, and current information.
-                  Failure to do so constitutes a breach of the Terms, which may result in immediate termination
-                  of your account.
-                </p>
-                <p className="mt-3">
-                  You are responsible for safeguarding the password and for all activities that occur under your account.
-                </p>
+                <h2 className="text-2xl font-semibold text-foreground mb-3">
+                  {t("terms.section3.title")}
+                </h2>
+                <p>{t("terms.section3.p1")}</p>
+                <p className="mt-3">{t("terms.section3.p2")}</p>
               </section>
 
+              {/* 4 */}
               <section>
-                <h2 className="text-2xl font-semibold text-foreground mb-3">4. Intellectual Property</h2>
-                <p>
-                  The service and its original content, features, and functionality are and will remain the exclusive
-                  property of the company and its licensors. The service is protected by copyright, trademark, and
-                  other laws.
-                </p>
+                <h2 className="text-2xl font-semibold text-foreground mb-3">
+                  {t("terms.section4.title")}
+                </h2>
+                <p>{t("terms.section4.p1")}</p>
               </section>
 
+              {/* 5 */}
               <section>
-                <h2 className="text-2xl font-semibold text-foreground mb-3">5. Prohibited Uses</h2>
-                <p>You may not use our services:</p>
+                <h2 className="text-2xl font-semibold text-foreground mb-3">
+                  {t("terms.section5.title")}
+                </h2>
+                <p>{t("terms.section5.p1")}</p>
                 <ul className="list-disc pl-6 space-y-2 mt-3">
-                  <li>For any unlawful purpose or to solicit others to perform unlawful acts</li>
-                  <li>To violate any international, federal, provincial, or state regulations, rules, laws, or local ordinances</li>
-                  <li>To infringe upon or violate our intellectual property rights or the intellectual property rights of others</li>
-                  <li>To harass, abuse, insult, harm, defame, slander, disparage, intimidate, or discriminate</li>
-                  <li>To submit false or misleading information</li>
-                  <li>To upload or transmit viruses or any other type of malicious code</li>
+                  <li>{t("terms.section5.li1")}</li>
+                  <li>{t("terms.section5.li2")}</li>
+                  <li>{t("terms.section5.li3")}</li>
+                  <li>{t("terms.section5.li4")}</li>
+                  <li>{t("terms.section5.li5")}</li>
+                  <li>{t("terms.section5.li6")}</li>
                 </ul>
               </section>
 
+              {/* 6 */}
               <section>
-                <h2 className="text-2xl font-semibold text-foreground mb-3">6. Disclaimer</h2>
-                <p>
-                  The materials on our service are provided on an 'as is' basis. We make no warranties, expressed or
-                  implied, and hereby disclaim and negate all other warranties including, without limitation, implied
-                  warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement
-                  of intellectual property.
-                </p>
+                <h2 className="text-2xl font-semibold text-foreground mb-3">
+                  {t("terms.section6.title")}
+                </h2>
+                <p>{t("terms.section6.p1")}</p>
               </section>
 
+              {/* 7 */}
               <section>
-                <h2 className="text-2xl font-semibold text-foreground mb-3">7. Limitations</h2>
-                <p>
-                  In no event shall the company or its suppliers be liable for any damages (including, without limitation,
-                  damages for loss of data or profit, or due to business interruption) arising out of the use or inability
-                  to use our services.
-                </p>
+                <h2 className="text-2xl font-semibold text-foreground mb-3">
+                  {t("terms.section7.title")}
+                </h2>
+                <p>{t("terms.section7.p1")}</p>
               </section>
 
+              {/* 8 */}
               <section>
-                <h2 className="text-2xl font-semibold text-foreground mb-3">8. Termination</h2>
-                <p>
-                  We may terminate or suspend your account and bar access to the service immediately, without prior notice
-                  or liability, under our sole discretion, for any reason whatsoever, including without limitation if you
-                  breach the Terms.
-                </p>
+                <h2 className="text-2xl font-semibold text-foreground mb-3">
+                  {t("terms.section8.title")}
+                </h2>
+                <p>{t("terms.section8.p1")}</p>
               </section>
 
+              {/* 9 */}
               <section>
-                <h2 className="text-2xl font-semibold text-foreground mb-3">9. Changes to Terms</h2>
-                <p>
-                  We reserve the right to modify or replace these Terms at any time. If a revision is material, we will
-                  provide at least 30 days' notice prior to any new terms taking effect.
-                </p>
+                <h2 className="text-2xl font-semibold text-foreground mb-3">
+                  {t("terms.section9.title")}
+                </h2>
+                <p>{t("terms.section9.p1")}</p>
               </section>
 
+              {/* 10 */}
               <section>
-                <h2 className="text-2xl font-semibold text-foreground mb-3">10. Contact Us</h2>
+                <h2 className="text-2xl font-semibold text-foreground mb-3">
+                  {t("terms.section10.title")}
+                </h2>
                 <p>
-                  If you have any questions about these Terms, please contact us at:
+                  {t("terms.section10.p1")}
                   <br />
-                  <span className="text-primary">contact@company.com</span>
+                  <span className="text-primary">{t("terms.section10.email")}</span>
                 </p>
               </section>
             </div>

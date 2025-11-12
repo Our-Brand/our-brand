@@ -1,0 +1,151 @@
+{
+  "nav.home": "Início",
+  "nav.mission": "Missão",
+  "nav.team": "Equipa",
+  "nav.contact": "Contacto",
+
+  "lang.current": "Português",
+  "lang.short": "PT",
+  "lang.en": "🇬🇧 Inglês",
+  "lang.pt": "🇵🇹 Português (PT)",
+
+  "cta.bookCall": "Agendar Chamada",
+
+  "hero.logoAlt": "Logótipo da nossa marca",
+  "hero.title": "Bem-vindo à Nossa Marca",
+  "hero.subtitle": "Transformamos ideias em realidade com inovação e excelência",
+  "hero.getStarted": "Começar",
+
+  "mission.sectionTitle": "A Nossa Missão & Valores",
+  "mission.cardTitle": "A Nossa Missão",
+  "mission.text": "Trabalhamos para entregar soluções excecionais que capacitam as empresas a alcançar todo o seu potencial. O nosso compromisso é oferecer serviços inovadores, fiáveis e escaláveis que impulsionam o sucesso e criam impacto duradouro no panorama digital.",
+  "values.cardTitle": "Os Nossos Valores",
+  "values.item1": "Inovação no centro de tudo o que fazemos",
+  "values.item2": "Integridade e transparência em todas as relações",
+  "values.item3": "Excelência através da melhoria contínua",
+  "values.item4": "O sucesso do cliente como objetivo principal",
+
+  "team.sectionTitle": "Conheça a Nossa Equipa",
+  "team.member1.name": "Paulo Ribeiro",
+  "team.member1.role": "CEO",
+  "team.member1.bio": "Líder visionário com mais de 15 anos de experiência",
+  "team.member2.name": "Cláudio Bessa",
+  "team.member2.role": "CTO",
+  "team.member2.bio": "Inovador tecnológica apaixonad por soluções de ponta",
+  "team.member3.name": "Marco Ribeiro",
+  "team.member3.role": "Head de Design",
+  "team.member3.bio": "Diretor criativo focado em design centrado no utilizador",
+  "team.member4.name": "Francisco Lima",
+  "team.member4.role": "Head de Design",
+  "team.member4.bio": "Diretor criativo focado em design centrado no utilizador",
+
+  "contact.sectionTitle": "Fale Connosco",
+  "contact.form.title": "Envie-nos uma mensagem",
+  "contact.form.subtitle": "Responderemos assim que possível",
+  "contact.form.nameLabel": "Nome",
+  "contact.form.namePlaceholder": "O seu nome",
+  "contact.form.emailLabel": "Email",
+  "contact.form.emailPlaceholder": "o-seu@email.com",
+  "contact.form.messageLabel": "Mensagem",
+  "contact.form.messagePlaceholder": "Fale-nos sobre o seu projeto...",
+  "contact.form.submit": "Enviar Mensagem",
+
+  "contact.info.title": "Informações de Contacto",
+  "contact.info.subtitle": "Encontre-nos através destes canais",
+  "contact.info.email": "Email",
+  "contact.info.phone": "Telefone",
+  "contact.info.address": "Morada",
+  "contact.info.addressValue": "Avepark - Zona Industrial da Gandra, São Cláudio do, Barco",
+
+  "footer.privacy": "Política de Privacidade",
+  "footer.terms": "Termos & Condições",
+  "footer.rights": "Todos os direitos reservados.",
+
+  "privacy.backToHome": "Voltar ao Início",
+  "privacy.title": "Política de Privacidade",
+  "privacy.lastUpdated": "Última atualização: novembro de 2024",
+
+  "privacy.section1.title": "1. Informações que Recolhemos",
+  "privacy.section1.p1": "Recolhemos informações que nos fornece diretamente, incluindo quando cria uma conta, utiliza os nossos serviços, comunica connosco ou participa em funcionalidades interativas dos nossos serviços.",
+  "privacy.section1.li1": "Informação de identificação pessoal (Nome, endereço de email, número de telefone)",
+  "privacy.section1.li2": "Informação profissional",
+  "privacy.section1.li3": "Dados de comunicação",
+  "privacy.section1.li4": "Dados de utilização e analítica",
+
+  "privacy.section2.title": "2. Como Utilizamos as Suas Informações",
+  "privacy.section2.intro": "Utilizamos as informações recolhidas para:",
+  "privacy.section2.li1": "Fornecer, manter e melhorar os nossos serviços",
+  "privacy.section2.li2": "Processar transações e enviar informações relacionadas",
+  "privacy.section2.li3": "Enviar avisos técnicos, atualizações e mensagens de suporte",
+  "privacy.section2.li4": "Responder aos seus comentários, questões e pedidos de apoio ao cliente",
+  "privacy.section2.li5": "Comunicar consigo sobre produtos, serviços e eventos",
+
+  "privacy.section3.title": "3. Partilha de Informações",
+  "privacy.section3.p1": "Não partilhamos os seus dados pessoais com terceiros, exceto conforme descrito nesta política. Podemos partilhar informações nas seguintes circunstâncias:",
+  "privacy.section3.li1": "Com o seu consentimento ou a seu pedido",
+  "privacy.section3.li2": "Com prestadores de serviços que atuam em nosso nome",
+  "privacy.section3.li3": "Por motivos legais ou para prevenir danos",
+  "privacy.section3.li4": "No âmbito de uma operação societária",
+
+  "privacy.section4.title": "4. Segurança dos Dados",
+  "privacy.section4.p1": "Implementamos medidas técnicas e organizacionais adequadas para proteger a segurança dos seus dados pessoais. No entanto, note que nenhum método de transmissão via Internet ou de armazenamento eletrónico é 100% seguro.",
+
+  "privacy.section5.title": "5. Os Seus Direitos",
+  "privacy.section5.p1": "Consoante a sua localização, poderá ter determinados direitos relativamente aos seus dados pessoais:",
+  "privacy.section5.li1": "Aceder e receber uma cópia dos seus dados pessoais",
+  "privacy.section5.li2": "Corrigir ou atualizar os seus dados pessoais",
+  "privacy.section5.li3": "Eliminar os seus dados pessoais",
+  "privacy.section5.li4": "Opor-se ou restringir certos tratamentos",
+  "privacy.section5.li5": "Portabilidade dos dados",
+
+  "privacy.section6.title": "6. Contacte-nos",
+  "privacy.section6.p1": "Se tiver alguma questão sobre esta Política de Privacidade, contacte-nos através de:",
+  "privacy.section6.email": "suporte@our-brand.pt",
+
+  "terms.backToHome": "Voltar ao Início",
+  "terms.title": "Termos & Condições",
+  "terms.lastUpdated": "Última atualização: novembro de 2024",
+
+  "terms.section1.title": "1. Aceitação dos Termos",
+  "terms.section1.p1": "Ao aceder e utilizar os nossos serviços, aceita e concorda em ficar vinculado aos termos e disposições deste acordo. Se não concorda com estes termos, não utilize os nossos serviços.",
+
+  "terms.section2.title": "2. Licença de Utilização",
+  "terms.section2.p1": "É concedida permissão para aceder temporariamente aos nossos serviços apenas para visualização transitória pessoal e não comercial. Trata-se da concessão de uma licença, não de uma transferência de propriedade, e ao abrigo desta licença não pode:",
+  "terms.section2.li1": "Modificar ou copiar os materiais",
+  "terms.section2.li2": "Utilizar os materiais para qualquer fim comercial ou exibição pública",
+  "terms.section2.li3": "Tentar descompilar ou fazer engenharia inversa a qualquer software",
+  "terms.section2.li4": "Remover quaisquer menções de direitos de autor ou de propriedade",
+  "terms.section2.li5": "Transferir os materiais para outra pessoa ou entidade",
+
+  "terms.section3.title": "3. Contas de Utilizador",
+  "terms.section3.p1": "Ao criar uma conta connosco, deve fornecer informações exatas, completas e atualizadas. O incumprimento constitui violação dos Termos e pode resultar na rescisão imediata da sua conta.",
+  "terms.section3.p2": "É responsável por proteger a palavra-passe e por todas as atividades que ocorram na sua conta.",
+
+  "terms.section4.title": "4. Propriedade Intelectual",
+  "terms.section4.p1": "O serviço e o seu conteúdo original, funcionalidades e características são e permanecerão propriedade exclusiva da empresa e dos seus licenciantes. O serviço é protegido por leis de direitos de autor, marcas e outras leis.",
+
+  "terms.section5.title": "5. Utilizações Proibidas",
+  "terms.section5.p1": "Não pode utilizar os nossos serviços:",
+  "terms.section5.li1": "Para qualquer finalidade ilegal ou para incitar outros a praticarem atos ilegais",
+  "terms.section5.li2": "Para violar quaisquer regulamentos, regras ou leis internacionais, federais, regionais ou locais",
+  "terms.section5.li3": "Para infringir ou violar os nossos direitos de propriedade intelectual ou os direitos de terceiros",
+  "terms.section5.li4": "Para assediar, abusar, insultar, prejudicar, difamar, caluniar, menosprezar, intimidar ou discriminar",
+  "terms.section5.li5": "Para submeter informações falsas ou enganosas",
+  "terms.section5.li6": "Para carregar ou transmitir vírus ou qualquer outro tipo de código malicioso",
+
+  "terms.section6.title": "6. Declaração de Exoneração de Responsabilidade",
+  "terms.section6.p1": "Os materiais do nosso serviço são fornecidos 'tal como estão'. Não damos quaisquer garantias, expressas ou implícitas, e rejeitamos todas as outras garantias, incluindo, sem limitação, garantias implícitas de comercialização, adequação a um fim específico ou não infração de propriedade intelectual.",
+
+  "terms.section7.title": "7. Limitações",
+  "terms.section7.p1": "Em caso algum a empresa ou os seus fornecedores serão responsáveis por quaisquer danos (incluindo, sem limitação, perdas de dados ou lucros, ou interrupção do negócio) resultantes da utilização ou impossibilidade de utilização dos nossos serviços.",
+
+  "terms.section8.title": "8. Rescisão",
+  "terms.section8.p1": "Podemos encerrar ou suspender a sua conta e impedir o acesso ao serviço imediatamente, sem aviso prévio ou responsabilidade, a nosso exclusivo critério, por qualquer motivo, incluindo, sem limitação, se violar os Termos.",
+
+  "terms.section9.title": "9. Alterações aos Termos",
+  "terms.section9.p1": "Reservamo-nos o direito de modificar ou substituir estes Termos a qualquer momento. Se a alteração for material, forneceremos um aviso com pelo menos 30 dias de antecedência antes de os novos termos entrarem em vigor.",
+
+  "terms.section10.title": "10. Contacte-nos",
+  "terms.section10.p1": "Se tiver alguma questão sobre estes Termos, contacte-nos através de:",
+  "terms.section10.email": "suporte@our-brand.pt"
+}

@@ -1,0 +1,152 @@
+{
+  "nav.home": "Home",
+  "nav.mission": "Mission",
+  "nav.team": "Team",
+  "nav.contact": "Contact",
+
+  "lang.current": "English",
+  "lang.short": "EN",
+  "lang.en": "🇬🇧 English",
+  "lang.pt": "🇵🇹 Portuguese (PT)",
+
+  "cta.bookCall": "Book a Call",
+
+  "hero.logoAlt": "Our Brand Logo",
+  "hero.title": "Welcome to Our Brand",
+  "hero.subtitle": "Transforming ideas into reality with innovation and excellence",
+  "hero.getStarted": "Get Started",
+
+  "mission.sectionTitle": "Our Mission & Values",
+  "mission.cardTitle": "Our Mission",
+  "mission.text": "We strive to deliver exceptional solutions that empower businesses to reach their full potential. Our commitment is to provide innovative, reliable, and scalable services that drive success and create lasting impact in the digital landscape.",
+  "values.cardTitle": "Our Values",
+  "values.item1": "Innovation at the core of everything we do",
+  "values.item2": "Integrity and transparency in all relationships",
+  "values.item3": "Excellence through continuous improvement",
+  "values.item4": "Customer success as our primary goal",
+
+  "team.sectionTitle": "Meet Our Team",
+  "team.member1.name": "Paulo Ribero",
+  "team.member1.role": "CEO",
+  "team.member1.bio": "Visionary leader with 15+ years of experience",
+  "team.member2.name": "Cláudio Bessa",
+  "team.member2.role": "CTO",
+  "team.member2.bio": "Tech innovator passionate about cutting-edge solutions",
+  "team.member3.name": "Marco Ribeiro",
+  "team.member3.role": "Head of Design",
+  "team.member3.bio": "Creative director focused on user-centric design",
+  "team.member4.name": "Francisco Lima",
+  "team.member4.role": "Head of Design",
+  "team.member4.bio": "Creative director focused on user-centric design",
+
+
+  "contact.sectionTitle": "Get In Touch",
+  "contact.form.title": "Send us a message",
+  "contact.form.subtitle": "We'll get back to you as soon as possible",
+  "contact.form.nameLabel": "Name",
+  "contact.form.namePlaceholder": "Your name",
+  "contact.form.emailLabel": "Email",
+  "contact.form.emailPlaceholder": "your@email.com",
+  "contact.form.messageLabel": "Message",
+  "contact.form.messagePlaceholder": "Tell us about your project...",
+  "contact.form.submit": "Send Message",
+
+  "contact.info.title": "Contact Information",
+  "contact.info.subtitle": "Find us through these channels",
+  "contact.info.email": "Email",
+  "contact.info.phone": "Phone",
+  "contact.info.address": "Address",
+  "contact.info.addressValue": "Avepark - Zona Industrial da Gandra, São Cláudio do, Barco",
+
+  "footer.privacy": "Privacy Policy",
+  "footer.terms": "Terms & Conditions",
+  "footer.rights": "All rights reserved.",
+
+  "privacy.backToHome": "Back to Home",
+  "privacy.title": "Privacy Policy",
+  "privacy.lastUpdated": "Last updated: November 2024",
+
+  "privacy.section1.title": "1. Information We Collect",
+  "privacy.section1.p1": "We collect information that you provide directly to us, including when you create an account, use our services, communicate with us, or participate in any interactive features of our services.",
+  "privacy.section1.li1": "Personal identification information (Name, email address, phone number)",
+  "privacy.section1.li2": "Professional information",
+  "privacy.section1.li3": "Communication data",
+  "privacy.section1.li4": "Usage data and analytics",
+
+  "privacy.section2.title": "2. How We Use Your Information",
+  "privacy.section2.intro": "We use the information we collect to:",
+  "privacy.section2.li1": "Provide, maintain, and improve our services",
+  "privacy.section2.li2": "Process transactions and send related information",
+  "privacy.section2.li3": "Send you technical notices, updates, and support messages",
+  "privacy.section2.li4": "Respond to your comments, questions, and customer service requests",
+  "privacy.section2.li5": "Communicate with you about products, services, and events",
+
+  "privacy.section3.title": "3. Information Sharing",
+  "privacy.section3.p1": "We do not share your personal information with third parties except as described in this policy. We may share information in the following circumstances:",
+  "privacy.section3.li1": "With your consent or at your direction",
+  "privacy.section3.li2": "With service providers who perform services on our behalf",
+  "privacy.section3.li3": "For legal reasons or to prevent harm",
+  "privacy.section3.li4": "In connection with a business transaction",
+
+  "privacy.section4.title": "4. Data Security",
+  "privacy.section4.p1": "We implement appropriate technical and organizational measures to protect the security of your personal information. However, please note that no method of transmission over the Internet or method of electronic storage is 100% secure.",
+
+  "privacy.section5.title": "5. Your Rights",
+  "privacy.section5.p1": "Depending on your location, you may have certain rights regarding your personal information:",
+  "privacy.section5.li1": "Access and receive a copy of your personal information",
+  "privacy.section5.li2": "Correct or update your personal information",
+  "privacy.section5.li3": "Delete your personal information",
+  "privacy.section5.li4": "Object to or restrict certain processing",
+  "privacy.section5.li5": "Data portability",
+
+  "privacy.section6.title": "6. Contact Us",
+  "privacy.section6.p1": "If you have any questions about this Privacy Policy, please contact us at:",
+  "privacy.section6.email": "suporte@our-brand.pt",
+
+    "terms.backToHome": "Back to Home",
+  "terms.title": "Terms & Conditions",
+  "terms.lastUpdated": "Last updated: November 2024",
+
+  "terms.section1.title": "1. Acceptance of Terms",
+  "terms.section1.p1": "By accessing and using our services, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to these terms, please do not use our services.",
+
+  "terms.section2.title": "2. Use License",
+  "terms.section2.p1": "Permission is granted to temporarily access our services for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:",
+  "terms.section2.li1": "Modify or copy the materials",
+  "terms.section2.li2": "Use the materials for any commercial purpose or public display",
+  "terms.section2.li3": "Attempt to decompile or reverse engineer any software",
+  "terms.section2.li4": "Remove any copyright or proprietary notations",
+  "terms.section2.li5": "Transfer the materials to another person or entity",
+
+  "terms.section3.title": "3. User Accounts",
+  "terms.section3.p1": "When you create an account with us, you must provide accurate, complete, and current information. Failure to do so constitutes a breach of the Terms, which may result in immediate termination of your account.",
+  "terms.section3.p2": "You are responsible for safeguarding the password and for all activities that occur under your account.",
+
+  "terms.section4.title": "4. Intellectual Property",
+  "terms.section4.p1": "The service and its original content, features, and functionality are and will remain the exclusive property of the company and its licensors. The service is protected by copyright, trademark, and other laws.",
+
+  "terms.section5.title": "5. Prohibited Uses",
+  "terms.section5.p1": "You may not use our services:",
+  "terms.section5.li1": "For any unlawful purpose or to solicit others to perform unlawful acts",
+  "terms.section5.li2": "To violate any international, federal, provincial, or state regulations, rules, laws, or local ordinances",
+  "terms.section5.li3": "To infringe upon or violate our intellectual property rights or the intellectual property rights of others",
+  "terms.section5.li4": "To harass, abuse, insult, harm, defame, slander, disparage, intimidate, or discriminate",
+  "terms.section5.li5": "To submit false or misleading information",
+  "terms.section5.li6": "To upload or transmit viruses or any other type of malicious code",
+
+  "terms.section6.title": "6. Disclaimer",
+  "terms.section6.p1": "The materials on our service are provided on an 'as is' basis. We make no warranties, expressed or implied, and hereby disclaim and negate all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property.",
+
+  "terms.section7.title": "7. Limitations",
+  "terms.section7.p1": "In no event shall the company or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use our services.",
+
+  "terms.section8.title": "8. Termination",
+  "terms.section8.p1": "We may terminate or suspend your account and bar access to the service immediately, without prior notice or liability, under our sole discretion, for any reason whatsoever, including without limitation if you breach the Terms.",
+
+  "terms.section9.title": "9. Changes to Terms",
+  "terms.section9.p1": "We reserve the right to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect.",
+
+  "terms.section10.title": "10. Contact Us",
+  "terms.section10.p1": "If you have any questions about these Terms, please contact us at:",
+  "terms.section10.email": "suporte@our-brand.pt"
+}
