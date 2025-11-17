@@ -33,6 +33,9 @@ const Nav = () => {
           <button onClick={() => scrollToSection("team")} className="text-foreground/80 hover:text-primary transition-colors">
             {t("nav.team")}
           </button>
+          <button onClick={() => scrollToSection("careers")} className="text-foreground/80 hover:text-primary transition-colors">
+            {t("nav.careers")}
+          </button>
           <button onClick={() => scrollToSection("contact")} className="text-foreground/80 hover:text-primary transition-colors">
             {t("nav.contact")}
           </button>

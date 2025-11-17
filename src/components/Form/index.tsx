@@ -37,7 +37,6 @@ const ContactForm = () =>  {
 
   return (
     <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
-
       <div>
         <Label htmlFor="name">{t("contact.form.nameLabel")}</Label>
         <Input

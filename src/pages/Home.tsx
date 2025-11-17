@@ -8,12 +8,12 @@ import ContactForm from "@/components/Form";
 import Nav from "@/components/Nav";
 
 
-const Index = () => {
+const Home = () => {
   const { t } = useLanguage();
 
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
-  };  
+  };
 
   return (
     <div className="relative min-h-screen bg-background">
@@ -142,6 +142,32 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Join us */}
+      <section id="careers" className="py-24 bg-muted">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-brand bg-clip-text text-transparent">
+                {t("join.sectionTitle")}
+              </h2>
+              <p className="text-muted-foreground leading-relaxed">
+                {t("join.text")}
+              </p>
+            </div>
+
+            <div className="flex md:justify-end justify-center">
+              <Button
+                className="w-80 bg-gradient-brand text-primary-foreground hover:opacity-90"
+                onClick={() => scrollToSection("contact")}
+              >
+                {t("join.cta")}
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
       {/* Contact Section */}
       <section id="contact" className="py-24">
         <div className="container mx-auto px-4">
@@ -230,4 +256,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Home;
