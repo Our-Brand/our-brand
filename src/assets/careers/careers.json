@@ -1,0 +1,10 @@
+[
+  {
+    "id": 1,
+    "title": "career.openApplication",
+    "description": "career.openApplicationDescription",
+    "type": "career.freelancer",
+    "location": "career.hybrid",
+    "link": "#contact"
+  }
+]

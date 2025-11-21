@@ -65,6 +65,30 @@
   "contact.info.address": "Address",
   "contact.info.addressValue": "Avepark - Zona Industrial da Gandra, São Cláudio do, Barco",
 
+  "career.title": "Join Our Growing Team",
+  "career.subtitle": "Skills are a great drive and teamwork matter even more. Think you'd be a good fit?",
+  "career.openPositions": "Open Positions",
+
+  "career.openApplicationDescription": "It doesn't matter who you are or what your skill level is. If you're adventurous, enjoy working as part of a team, and love getting things done, you might be a great fit.",
+  "career.freelancer": "Freelancer",
+
+  "career.hybrid": "Hybrid",
+  "career.remote": "Remote",
+  "career.onSite": "On-Site",
+
+  "career.openApplication": "Open Application",
+
+  "career.ourBrand.title": "Why work at",
+
+  "career.ourBrand.reason1.title": "Make a Real Impact",
+  "career.ourBrand.reason1.description": "Help shape key decisions, work closely with clients, and use AI to create solutions that matter.",
+
+  "career.ourBrand.reason2.title": "Level Up Your Skills",
+  "career.ourBrand.reason2.description": "Grow faster by working with talented people and learning new technologies.",
+
+  "career.ourBrand.reason3.title": "Flexible Work",
+  "career.ourBrand.reason3.description": "Work from anywhere, with a flexible culture and generous vacation time.",
+
   "footer.privacy": "Privacy Policy",
   "footer.terms": "Terms & Conditions",
   "footer.rights": "All rights reserved.",
@@ -110,7 +134,7 @@
   "privacy.section6.p1": "If you have any questions about this Privacy Policy, please contact us at:",
   "privacy.section6.email": "suporte@our-brand.pt",
 
-    "terms.backToHome": "Back to Home",
+  "terms.backToHome": "Back to Home",
   "terms.title": "Terms & Conditions",
   "terms.lastUpdated": "Last updated: November",
 

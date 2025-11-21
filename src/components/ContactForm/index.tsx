@@ -4,9 +4,13 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { useLanguage } from "@/state/LanguageProvider";
+import { useLanguage } from "@/hooks/use-language";
 
-const ContactForm = () =>  {
+interface ContactFormProps {
+  isCarrerPage?: boolean;
+}
+
+const ContactForm = ({ isCarrerPage = false }: ContactFormProps) => {
   const { t } = useLanguage();
   const formRef = useRef(null);
   const [loading, setLoading] = useState(false);
@@ -30,7 +34,7 @@ const ContactForm = () =>  {
     } catch (error) {
       console.error(error);
       setStatus("error");
-    } finally { 
+    } finally {
       setLoading(false);
     }
   };
@@ -86,12 +90,10 @@ const ContactForm = () =>  {
       )}
 
       {status === "error" && (
-        <p className="text-red-600 text-sm">
-          {t("contact.form.errorMessage")}
-        </p>
+        <p className="text-red-600 text-sm">{t("contact.form.errorMessage")}</p>
       )}
     </form>
   );
-}
+};
 
 export default ContactForm;

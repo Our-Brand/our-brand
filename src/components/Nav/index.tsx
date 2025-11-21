@@ -1,12 +1,38 @@
-import { useLanguage } from "@/state/LanguageProvider";
 import logo from "@/assets/images/logo.png";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../ui/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
 import { Button } from "../ui/button";
 import { Globe } from "lucide-react";
+import { useLanguage } from "@/hooks/use-language";
 
+interface NavProps {
+  shouldHideHome?: boolean;
+  shouldHideMission?: boolean;
+  shouldHideTeam?: boolean;
+  shouldHideCareer?: boolean;
+  shouldHideContact?: boolean;
+}
 
-const Nav = () => {
+const Nav = ({
+  shouldHideHome = false,
+  shouldHideMission = false,
+  shouldHideTeam = false,
+  shouldHideCareer = false,
+  shouldHideContact = false,
+}: NavProps) => {
   const { t, setLanguage } = useLanguage();
+
+  const navItems = [
+    { key: "home", section: "hero", hide: shouldHideHome },
+    { key: "mission", section: "mission", hide: shouldHideMission },
+    { key: "team", section: "team", hide: shouldHideTeam },
+    { key: "careers", section: "careers", hide: shouldHideCareer },
+    { key: "contact", section: "contact", hide: shouldHideContact },
+  ];
 
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
@@ -18,27 +44,27 @@ const Nav = () => {
         {/* Left: logo */}
         <div className="flex items-center gap-3 flex-1 min-w-0">
           <a href="/">
-            <img src={logo} alt={t("hero.logoAlt")} className="h-16 w-16 object-contain" />
+            <img
+              src={logo}
+              alt={t("hero.logoAlt")}
+              className="h-16 w-16 object-contain"
+            />
           </a>
         </div>
 
         {/* Center: nav links */}
         <div className="hidden md:flex gap-8 items-center flex-none">
-          <button onClick={() => scrollToSection("hero")} className="text-foreground/80 hover:text-primary transition-colors">
-            {t("nav.home")}
-          </button>
-          <button onClick={() => scrollToSection("mission")} className="text-foreground/80 hover:text-primary transition-colors">
-            {t("nav.mission")}
-          </button>
-          <button onClick={() => scrollToSection("team")} className="text-foreground/80 hover:text-primary transition-colors">
-            {t("nav.team")}
-          </button>
-          <button onClick={() => scrollToSection("careers")} className="text-foreground/80 hover:text-primary transition-colors">
-            {t("nav.careers")}
-          </button>
-          <button onClick={() => scrollToSection("contact")} className="text-foreground/80 hover:text-primary transition-colors">
-            {t("nav.contact")}
-          </button>
+          {navItems
+            .filter((item) => !item.hide)
+            .map((item) => (
+              <button
+                key={item.key}
+                onClick={() => scrollToSection(item.section)}
+                className="text-foreground/80 hover:text-primary transition-colors"
+              >
+                {t(`nav.${item.key}`)}
+              </button>
+            ))}
         </div>
 
         {/* Right: controls */}
@@ -51,11 +77,20 @@ const Nav = () => {
                 <span className="sm:hidden">{t("lang.short")}</span>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="bg-popover border-border">
-              <DropdownMenuItem onClick={() => setLanguage("en")} className="cursor-pointer hover:bg-accent">
+            <DropdownMenuContent
+              align="end"
+              className="bg-popover border-border"
+            >
+              <DropdownMenuItem
+                onClick={() => setLanguage("en")}
+                className="cursor-pointer hover:bg-accent"
+              >
                 {t("lang.en")}
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setLanguage("pt")} className="cursor-pointer hover:bg-accent">
+              <DropdownMenuItem
+                onClick={() => setLanguage("pt")}
+                className="cursor-pointer hover:bg-accent"
+              >
                 {t("lang.pt")}
               </DropdownMenuItem>
             </DropdownMenuContent>
@@ -73,7 +108,6 @@ const Nav = () => {
       </div>
     </nav>
   );
-
-}
+};
 
 export default Nav;

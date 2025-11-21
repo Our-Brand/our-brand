@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-import { useLanguage } from "@/state/LanguageProvider";
+import { useLanguage } from "@/hooks/use-language";
 
 const TermsAndConditions = () => {
   const { t } = useLanguage();
@@ -13,7 +13,9 @@ const TermsAndConditions = () => {
             <CardTitle className="text-4xl bg-gradient-brand bg-clip-text text-transparent">
               {t("terms.title")}
             </CardTitle>
-            <p className="text-muted-foreground mt-2">{t("terms.lastUpdated")} {new Date().getUTCFullYear()}</p>
+            <p className="text-muted-foreground mt-2">
+              {t("terms.lastUpdated")} {new Date().getUTCFullYear()}
+            </p>
           </CardHeader>
 
           <CardContent className="prose prose-invert max-w-none">
@@ -114,7 +116,9 @@ const TermsAndConditions = () => {
                 <p>
                   {t("terms.section10.p1")}
                   <br />
-                  <span className="text-primary">{t("terms.section10.email")}</span>
+                  <span className="text-primary">
+                    {t("terms.section10.email")}
+                  </span>
                 </p>
               </section>
             </div>

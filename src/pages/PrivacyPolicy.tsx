@@ -1,11 +1,10 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-import { useLanguage } from "@/state/LanguageProvider";
-
+import { useLanguage } from "@/hooks/use-language";
 
 const PrivacyPolicy = () => {
   const { t } = useLanguage();
-  
+
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-12">
@@ -14,7 +13,9 @@ const PrivacyPolicy = () => {
             <CardTitle className="text-4xl bg-gradient-brand bg-clip-text text-transparent">
               {t("privacy.title")}
             </CardTitle>
-            <p className="text-muted-foreground mt-2">{t("privacy.lastUpdated")} {new Date().getUTCFullYear()}</p>
+            <p className="text-muted-foreground mt-2">
+              {t("privacy.lastUpdated")} {new Date().getUTCFullYear()}
+            </p>
           </CardHeader>
 
           <CardContent className="prose prose-invert max-w-none">
@@ -93,7 +94,9 @@ const PrivacyPolicy = () => {
                 <p>
                   {t("privacy.section6.p1")}
                   <br />
-                  <span className="text-primary">{t("privacy.section6.email")}</span>
+                  <span className="text-primary">
+                    {t("privacy.section6.email")}
+                  </span>
                 </p>
               </section>
             </div>
