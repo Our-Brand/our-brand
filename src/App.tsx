@@ -7,7 +7,7 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
-import Career from "@/pages/Career";
+import Careers from "@/pages/Careers";
 import { LanguageProvider } from "@/providers/LanguageProvider";
 
 const queryClient = new QueryClient();
@@ -21,7 +21,7 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/career" element={<Career />} />
+            <Route path="/careers" element={<Careers />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route
               path="/terms-and-conditions"

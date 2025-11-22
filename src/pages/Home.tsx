@@ -197,7 +197,7 @@ const Home = () => {
 
             <div className="flex md:justify-end justify-center">
               <a
-                href="/career"
+                href="/careers"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
                 <Button

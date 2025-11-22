@@ -5,6 +5,12 @@
   "nav.careers": "Careers",
   "nav.contact": "Contact",
 
+  "notFound.title": "Oops! Page not found",
+  "notFound.description": "The page you're looking for doesn't exist or may have been moved.",
+  "notFound.backToHome": "Return to Home",
+  "notFound.redirecting": "Redirecting in",
+  "notFound.second": "second",
+
   "lang.current": "English",
   "lang.short": "EN",
   "lang.en": "🇬🇧 English (EN)",

@@ -13,7 +13,7 @@ interface NavProps {
   shouldHideHome?: boolean;
   shouldHideMission?: boolean;
   shouldHideTeam?: boolean;
-  shouldHideCareer?: boolean;
+  shouldHideCareers?: boolean;
   shouldHideContact?: boolean;
 }
 
@@ -21,7 +21,7 @@ const Nav = ({
   shouldHideHome = false,
   shouldHideMission = false,
   shouldHideTeam = false,
-  shouldHideCareer = false,
+  shouldHideCareers = false,
   shouldHideContact = false,
 }: NavProps) => {
   const { t, setLanguage } = useLanguage();
@@ -30,7 +30,7 @@ const Nav = ({
     { key: "home", section: "hero", hide: shouldHideHome },
     { key: "mission", section: "mission", hide: shouldHideMission },
     { key: "team", section: "team", hide: shouldHideTeam },
-    { key: "careers", section: "careers", hide: shouldHideCareer },
+    { key: "careers", section: "careers", hide: shouldHideCareers },
     { key: "contact", section: "contact", hide: shouldHideContact },
   ];
 
@@ -70,7 +70,7 @@ const Nav = ({
         {/* Right: controls */}
         <div className="flex items-center gap-4 justify-end flex-1 min-w-0">
           <DropdownMenu>
-            <DropdownMenuTrigger asChild>
+            <DropdownMenuTrigger asChild className="h-10">
               <Button variant="outline" size="sm" className="gap-2">
                 <Globe className="h-4 w-4" />
                 <span className="hidden sm:inline">{t("lang.current")}</span>
@@ -100,7 +100,13 @@ const Nav = ({
             href="https://calendly.com/our-brand"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-gradient-brand text-primary-foreground px-6 py-2 rounded-lg font-medium hover:opacity-90 transition-opacity shadow-lg"
+            className="
+              inline-flex items-center justify-center
+              h-9 px-4
+              rounded-md text-sm font-medium
+              bg-gradient-brand text-primary-foreground
+              hover:opacity-90 transition-opacity shadow-lg
+            "
           >
             {t("cta.bookCall")}
           </a>

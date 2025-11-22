@@ -5,6 +5,12 @@
   "nav.careers": "Carreiras",
   "nav.contact": "Contacto",
 
+  "notFound.title": "Ups! Página não encontrada",
+  "notFound.description": "A página que procura não existe ou pode ter sido movida.",
+  "notFound.backToHome": "Voltar à Página Inicial",
+  "notFound.redirecting": "Redirecionando em",
+  "notFound.second": "segundo",
+
   "lang.current": "Português",
   "lang.short": "PT",
   "lang.en": "🇬🇧 Inglês (EN)",

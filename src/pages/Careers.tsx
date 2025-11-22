@@ -12,7 +12,7 @@ import {
 import { useCareers } from "@/hooks/use-careers";
 import { useLanguage } from "@/hooks/use-language";
 
-const Career = () => {
+const Careers = () => {
   const { t } = useLanguage();
   const { careers } = useCareers();
 
@@ -36,7 +36,7 @@ const Career = () => {
         shouldHideHome={true}
         shouldHideMission={true}
         shouldHideTeam={true}
-        shouldHideCareer={true}
+        shouldHideCareers={true}
         shouldHideContact={true}
       />
 
@@ -140,4 +140,4 @@ const Career = () => {
   );
 };
 
-export default Career;
+export default Careers;
