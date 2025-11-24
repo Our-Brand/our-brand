@@ -256,7 +256,7 @@ const Home = () => {
                   </div>
                   <div>
                     <p className="font-medium">{t("contact.info.phone")}</p>
-                    <p className="text-muted-foreground">(+351) 918220241</p>
+                    <p className="text-muted-foreground">(+351) XXXXXXXXX</p>
                   </div>
                 </div>
 
