@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import Careers from "@/pages/Careers";
+import ComingSoon from "@/pages/ComingSoon";
 
 const queryClient = new QueryClient();
 
@@ -23,7 +24,7 @@ const App = () => (
 
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<ComingSoon />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route
