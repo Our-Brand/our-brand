@@ -22,6 +22,12 @@ const Home = () => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const team = Array.from({ length: 3 }, (_, index) => ({
+    name: t(`team.member${index + 1}.name`),
+    role: t(`team.member${index + 1}.role`),
+    bio: t(`team.member${index + 1}.bio`),
+  }));
+
   return (
     <div className="relative min-h-screen bg-background">
       {/* Navigation */}
@@ -136,28 +142,7 @@ const Home = () => {
           </h2>
 
           <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                name: t("team.member1.name"),
-                role: t("team.member1.role"),
-                bio: t("team.member1.bio"),
-              },
-              {
-                name: t("team.member2.name"),
-                role: t("team.member2.role"),
-                bio: t("team.member2.bio"),
-              },
-              {
-                name: t("team.member3.name"),
-                role: t("team.member3.role"),
-                bio: t("team.member3.bio"),
-              },
-              {
-                name: t("team.member4.name"),
-                role: t("team.member4.role"),
-                bio: t("team.member4.bio"),
-              },
-            ].map((member, index) => (
+            {team.map((member, index) => (
               <Card
                 key={index}
                 className="bg-card border-border shadow-[0_8px_30px_rgb(0,0,0,0.4)] hover:shadow-[0_8px_40px_hsl(220,90%,55%,0.3)] transition-all duration-300 hover:-translate-y-2"
