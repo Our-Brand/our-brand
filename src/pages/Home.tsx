@@ -141,7 +141,7 @@ const Home = () => {
             {t("team.sectionTitle")}
           </h2>
 
-          <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {team.map((member, index) => (
               <Card
                 key={index}
