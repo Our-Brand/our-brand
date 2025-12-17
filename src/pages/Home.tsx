@@ -22,7 +22,7 @@ const Home = () => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const team = Array.from({ length: 3 }, (_, index) => ({
+  const team = Array.from({ length: 5 }, (_, index) => ({
     name: t(`team.member${index + 1}.name`),
     role: t(`team.member${index + 1}.role`),
     bio: t(`team.member${index + 1}.bio`),
@@ -69,7 +69,11 @@ const Home = () => {
 
           <Button
             onClick={() => scrollToSection("contact")}
-            className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6"
+            className=" inline-flex items-center justify-center
+              h-9 px-4
+              rounded-md  font-medium
+              bg-gradient-brand text-primary-foreground
+              hover:opacity-90 transition-opacity shadow-lg text-lg px-8 py-6"
           >
             {t("hero.getStarted")}
           </Button>
@@ -141,7 +145,7 @@ const Home = () => {
             {t("team.sectionTitle")}
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {team.map((member, index) => (
               <Card
                 key={index}
