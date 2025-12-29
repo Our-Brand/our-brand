@@ -9,8 +9,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { useCareers } from "@/hooks/use-careers";
-import { useLanguage } from "@/hooks/use-language";
+import { useCareers } from "@/hooks/useCareers";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const Careers = () => {
   const { t } = useLanguage();
