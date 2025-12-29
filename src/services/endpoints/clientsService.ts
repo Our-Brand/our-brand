@@ -48,6 +48,6 @@ const data: Client[] = [
 export const clientsService = {
   list: async (): Promise<Client[]> => {
     await sleep(600);
-    return [];
+    return data;
   },
 };
