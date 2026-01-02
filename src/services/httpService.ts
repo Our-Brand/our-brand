@@ -48,7 +48,7 @@ const parseError = async (res: Response): Promise<ApiError> => {
   };
 };
 
-export class BaseService {
+export class HttpService {
   private config: ServiceConfig;
 
   constructor(config: Partial<ServiceConfig> = {}) {
@@ -106,4 +106,4 @@ export class BaseService {
   }
 }
 
-export const api = new BaseService();
+export const api = new HttpService();
