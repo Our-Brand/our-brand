@@ -12,7 +12,6 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import Careers from "@/pages/Careers";
 import ComingSoon from "@/pages/ComingSoon";
-import WebsiteGenerator from "@/components/GenerateWebsite";
 
 const queryClient = new QueryClient();
 
@@ -27,7 +26,6 @@ const App = () => (
           <Routes>
             <Route path="/" element={<ComingSoon />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/ai" element={<WebsiteGenerator />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route
