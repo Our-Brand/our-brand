@@ -81,7 +81,7 @@ const ContactSection = ({ viewport }: ContactSectionProps) => {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
+                {/* <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center flex-shrink-0">
                     <Phone className="w-5 h-5 text-secondary" />
                   </div>
@@ -89,7 +89,7 @@ const ContactSection = ({ viewport }: ContactSectionProps) => {
                     <p className="font-medium">{t("contact.info.phone")}</p>
                     <p className="text-muted-foreground">(+351) XXXXXXXXX</p>
                   </div>
-                </div>
+                </div> */}
 
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">

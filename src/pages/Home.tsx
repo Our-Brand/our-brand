@@ -14,17 +14,27 @@ const Home = () => {
   const viewport = useMemo(() => ({ once: true, amount: 0.2 }), []);
 
   return (
-    <div className="relative min-h-screen bg-background">
+    <div
+      className="
+        relative
+        min-h-[100svh]
+        bg-background
+        overflow-x-hidden
+      "
+    >
       <Nav />
 
-      <HeroSection />
-      <MissionSection viewport={viewport} />
-      <ClientsSection viewport={viewport} />
-      <TeamSection viewport={viewport} />
-      <CareersSection viewport={viewport} />
-      <ContactSection viewport={viewport} />
+      {/* If Nav is fixed, this prevents content being hidden behind it */}
+      <main className="pt-16">
+        <HeroSection />
+        <MissionSection viewport={viewport} />
+        <ClientsSection viewport={viewport} />
+        <TeamSection viewport={viewport} />
+        <CareersSection viewport={viewport} />
+        <ContactSection viewport={viewport} />
 
-      <Footer />
+        <Footer />
+      </main>
     </div>
   );
 };
