@@ -33,8 +33,6 @@ const Careers = () => {
   return (
     <div className="relative min-h-screen bg-background">
       <Nav
-        shouldHideHome={true}
-        shouldHideMission={true}
         shouldHideTeam={true}
         shouldHideCareers={true}
         shouldHideContact={true}

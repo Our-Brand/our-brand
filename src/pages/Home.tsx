@@ -25,10 +25,10 @@ const Home = () => {
       <Nav />
 
       {/* If Nav is fixed, this prevents content being hidden behind it */}
-      <main className="pt-16">
+      <main>
         <HeroSection />
         <MissionSection viewport={viewport} />
-        <ClientsSection viewport={viewport} />
+        {/* <ClientsSection viewport={viewport} /> */}
         <TeamSection viewport={viewport} />
         <CareersSection viewport={viewport} />
         <ContactSection viewport={viewport} />

@@ -37,8 +37,6 @@ const NotFound = () => {
   return (
     <>
       <Nav
-        shouldHideHome={true}
-        shouldHideMission={true}
         shouldHideTeam={true}
         shouldHideCareers={true}
         shouldHideContact={true}

@@ -42,7 +42,7 @@ const TeamSection = ({ viewport }: TeamSectionProps) => {
   }, []);
 
   return (
-    <section id="team" className="py-24 bg-muted/20">
+    <section id="team" className="py-24">
       <div className="container mx-auto px-4">
         <motion.h2
           className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-brand bg-clip-text text-transparent"

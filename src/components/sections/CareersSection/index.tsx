@@ -14,7 +14,7 @@ const CareersSection = ({ viewport }: CareersSectionProps) => {
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <section id="careers" className="py-24 bg-muted">
+    <section id="careers" className="py-24">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 items-center">
           <motion.div
