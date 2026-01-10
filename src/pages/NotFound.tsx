@@ -36,11 +36,7 @@ const NotFound = () => {
 
   return (
     <>
-      <Nav
-        shouldHideTeam={true}
-        shouldHideCareers={true}
-        shouldHideContact={true}
-      />
+      <Nav />
 
       <div className="relative flex flex-col min-h-[92vh] justify-center items-center bg-background text-foreground overflow-hidden">
         <div className="absolute inset-0 bg-gradient-brand-subtle opacity-70 pointer-events-none" />

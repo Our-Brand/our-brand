@@ -32,11 +32,7 @@ const Careers = () => {
 
   return (
     <div className="relative min-h-screen bg-background">
-      <Nav
-        shouldHideTeam={true}
-        shouldHideCareers={true}
-        shouldHideContact={true}
-      />
+      <Nav />
 
       {/* Page heading section (title + subtitle) */}
       <section className="pt-24 md:pt-24 pb-8 md:pb-12">

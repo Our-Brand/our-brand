@@ -10,25 +10,11 @@ import { Globe } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { useNavigate } from "react-router-dom";
 
-interface NavProps {
-  shouldHideTeam?: boolean;
-  shouldHideCareers?: boolean;
-  shouldHideContact?: boolean;
-}
-
-const Nav = ({
-  shouldHideTeam = false,
-  shouldHideCareers = false,
-  shouldHideContact = false,
-}: NavProps) => {
+const Nav = () => {
   const { t, setLanguage } = useLanguage();
   const navigate = useNavigate();
 
-  const navItems = [
-    { key: "team", section: "team", hide: shouldHideTeam },
-    { key: "careers", section: "careers", hide: shouldHideCareers },
-    { key: "contact", section: "contact", hide: shouldHideContact },
-  ];
+  const navItems = [];
 
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
@@ -58,7 +44,7 @@ const Nav = ({
           </a>
 
           {/* Right group: nav + controls */}
-          <div className="ml-auto flex items-center gap-10">
+          <div className="ml-auto flex items-center gap-450px">
             {/* Nav links */}
             <div className="hidden md:flex items-center gap-2">
               {navItems

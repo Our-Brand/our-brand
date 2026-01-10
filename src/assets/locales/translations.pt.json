@@ -58,6 +58,29 @@
     "item4": "O sucesso do cliente como objetivo principal"
   },
 
+  "packages": {
+    "page": {
+      "title": "Vamos construir o seu futuro"
+    },
+    "items": {
+      "pro": {
+        "badge": "Exclusive"
+      }
+    },
+    "core": {
+      "title": "Base",
+      "description": ""
+    },
+    "pro": {
+      "title": "Pro",
+      "description": ""
+    },
+    "elite": {
+      "title": "Elite",
+      "description": ""
+    }
+  },
+
   "clients": {
     "sectionTitle": "Clientes & Colaborações"
   },

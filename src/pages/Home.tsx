@@ -9,6 +9,8 @@ import ClientsSection from "@/components/sections/ClientsSection";
 import TeamSection from "@/components/sections/TeamSection";
 import CareersSection from "@/components/sections/CareersSection";
 import ContactSection from "@/components/sections/ContactSection";
+import PackageSection from "@/components/sections/PackageSection";
+import ContextSection from "@/components/sections/ContextSection";
 
 const Home = () => {
   const viewport = useMemo(() => ({ once: true, amount: 0.2 }), []);
@@ -27,13 +29,14 @@ const Home = () => {
       {/* If Nav is fixed, this prevents content being hidden behind it */}
       <main>
         <HeroSection />
-        <MissionSection viewport={viewport} />
+        <PackageSection viewport={viewport} />
+        <ContextSection viewport={viewport} />
+        {/* <MissionSection viewport={viewport} /> */}
         {/* <ClientsSection viewport={viewport} /> */}
-        <TeamSection viewport={viewport} />
-        <CareersSection viewport={viewport} />
-        <ContactSection viewport={viewport} />
-
-        <Footer />
+        {/* <TeamSection viewport={viewport} /> */}
+        {/* <CareersSection viewport={viewport} /> */}
+        {/* <ContactSection viewport={viewport} /> */}
+        {/* <Footer /> */}
       </main>
     </div>
   );

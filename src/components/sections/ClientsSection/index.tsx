@@ -4,7 +4,7 @@ import { fadeUp, stagger } from "@/lib/motion";
 import ClientsCarousel from "@/components/ClientsCarousel";
 import { ViewportOptions } from "@/types/ui";
 import { useEffect, useState } from "react";
-import { clientsService } from "@/services/endpoints/clientsService";
+import { clientService } from "@/services/endpoints/clientService";
 import type { Client } from "@/types/client";
 
 type ClientsSectionProps = {
@@ -13,6 +13,7 @@ type ClientsSectionProps = {
 
 const ClientsSection = ({ viewport }: ClientsSectionProps) => {
   const { t } = useLanguage();
+
   const [clients, setClients] = useState<Client[]>([]);
   const [loading, setLoading] = useState(true);
   const [hasClients, setHasClients] = useState(false);
@@ -20,7 +21,7 @@ const ClientsSection = ({ viewport }: ClientsSectionProps) => {
   useEffect(() => {
     let alive = true;
 
-    clientsService
+    clientService
       .list()
       .then((res) => {
         if (!alive) return;

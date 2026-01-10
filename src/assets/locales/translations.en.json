@@ -58,6 +58,29 @@
     "item4": "Customer success as our primary goal"
   },
 
+  "packages": {
+    "page": {
+      "title": "Let's build your next step"
+    },
+    "items": {
+      "pro": {
+        "badge": "Exclusive"
+      }
+    },
+    "core": {
+      "title": "Core",
+      "description": ""
+    },
+    "pro": {
+      "title": "Pro",
+      "description": ""
+    },
+    "elite": {
+      "title": "Elite",
+      "description": ""
+    }
+  },
+
   "clients": {
     "sectionTitle": "Clients & Collaborations"
   },
