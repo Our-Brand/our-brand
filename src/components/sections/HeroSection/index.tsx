@@ -1,6 +1,5 @@
-import logo from "@/assets/images/logo.png";
 import { Button } from "@/components/ui/button";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 
 import { useLanguage } from "@/hooks/useLanguage";
 import { fadeUp, EASE_OUT } from "@/lib/motion";

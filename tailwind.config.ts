@@ -2,7 +2,12 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -13,6 +18,9 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["var(--font-sans)"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -98,7 +106,7 @@ export default {
             opacity: "0.6",
           },
         },
-        "float": {
+        float: {
           "0%, 100%": {
             transform: "translateY(0px)",
           },
@@ -106,7 +114,7 @@ export default {
             transform: "translateY(-20px)",
           },
         },
-        "glow": {
+        glow: {
           "0%, 100%": {
             filter: "drop-shadow(0 0 20px hsl(190, 90%, 55%, 0.5))",
           },
@@ -120,8 +128,8 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 1s ease-out",
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
-        "float": "float 6s ease-in-out infinite",
-        "glow": "glow 3s ease-in-out infinite",
+        float: "float 6s ease-in-out infinite",
+        glow: "glow 3s ease-in-out infinite",
       },
       backgroundImage: {
         "gradient-brand": "var(--gradient-brand)",

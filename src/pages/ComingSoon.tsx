@@ -5,8 +5,6 @@ const ComingSoon = () => {
   const { t } = useLanguage();
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-brand-subtle opacity-70" />
       <div className="absolute top-0 left-0 h-[600px] w-[600px] rounded-full bg-primary/30 blur-[120px] animate-pulse-glow" />
       <div
         className="absolute bottom-0 right-0 h-[600px] w-[600px] rounded-full bg-accent/30 blur-[120px] animate-pulse-glow"
@@ -25,7 +23,7 @@ const ComingSoon = () => {
         </div>
 
         <h1 className="mb-6 text-5xl md:text-7xl font-bold tracking-tight">
-          <span className="bg-gradient-brand bg-clip-text text-transparent">
+          <span className="bg-clip-text text-white">
             {t("comingSoon.title")}
           </span>
         </h1>

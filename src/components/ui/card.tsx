@@ -67,7 +67,7 @@ const CardTitle = React.forwardRef<
   <p
     ref={ref}
     className={cn(
-      "text-sm font-semibold tracking-[0.20em] text-white/80",
+      "text-base md:text-lg font-semibold tracking-[0.20em] text-white/80",
       className
     )}
     {...props}
@@ -81,7 +81,10 @@ const CardPrice = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn("mt-3 text-3xl font-semibold text-white", className)}
+    className={cn(
+      "mt-3 text-4xl md:text-5xl font-semibold text-white",
+      className
+    )}
     {...props}
   />
 ));
@@ -119,23 +122,24 @@ function SkeletonCard({ featured }: { featured?: boolean }) {
   return (
     <div
       className={[
-        "animate-pulse rounded-2xl bg-white/5 p-8 ring-2 backdrop-blur-md",
+        "animate-pulse rounded-2xl bg-white/5 p-10 md:p-12 ring-2 backdrop-blur-md",
+        "min-h-[520px] md:min-h-[580px]",
         featured
           ? "ring-cyan-400/40 shadow-[0_0_20px_rgba(34,211,238,0.15)]"
           : "ring-white/10 shadow-[0_0_20px_rgba(255,255,255,0.06)]",
       ].join(" ")}
     >
-      <div className="mx-auto h-4 w-24 rounded bg-white/10" />
-      <div className="mx-auto mt-4 h-8 w-28 rounded bg-white/10" />
+      <div className="mx-auto h-5 w-28 rounded bg-white/10" />
+      <div className="mx-auto mt-4 h-10 w-36 rounded bg-white/10" />
 
-      <div className="mt-10 space-y-3">
+      <div className="mt-12 space-y-4">
         <div className="h-3 w-11/12 rounded bg-white/10" />
         <div className="h-3 w-10/12 rounded bg-white/10" />
         <div className="h-3 w-9/12 rounded bg-white/10" />
         <div className="h-3 w-8/12 rounded bg-white/10" />
       </div>
 
-      <div className="mt-10 h-11 w-full rounded-xl bg-white/10" />
+      <div className="mt-12 h-12 w-full rounded-xl bg-white/10" />
     </div>
   );
 }
@@ -157,8 +161,9 @@ export function PackageCard({
     <Card
       variant={variant}
       className={[
-        "p-8",
         "cursor-pointer",
+        "p-10 md:p-12",
+        "min-h-[520px] md:min-h-[580px]",
         variant === "pro"
           ? "hover:shadow-[0_0_60px_rgba(34,211,238,0.35)] hover:ring-cyan-300/90 md:scale-[1.03]"
           : variant === "elite"
@@ -176,12 +181,15 @@ export function PackageCard({
       <div className="flex flex-col items-center text-center">
         <CardHeader>
           <CardTitle>{t(pkg.title)}</CardTitle>
-          <CardPrice>{pkg.price}€</CardPrice>
+          <CardPrice>{pkg.price}</CardPrice>
         </CardHeader>
 
         {/* Placeholder content */}
         <CardContent className="w-full space-y-3">
-          {t(pkg.description)}
+          <div className="h-3 w-11/12 rounded bg-white/10" />
+          <div className="h-3 w-10/12 rounded bg-white/10" />
+          <div className="h-3 w-9/12 rounded bg-white/10" />
+          <div className="h-3 w-8/12 rounded bg-white/10" />
         </CardContent>
       </div>
     </Card>
