@@ -3,9 +3,13 @@ import { useLanguage } from "@/hooks/useLanguage";
 import { fadeUp, stagger } from "@/lib/motion";
 import ClientsCarousel from "@/components/ClientsCarousel";
 import { ViewportOptions } from "@/types/ui";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { clientService } from "@/services/endpoints/clientService";
 import type { Client } from "@/types/client";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { Sparkles } from "lucide-react";
+import { useIsMobile } from "@/hooks/useMobile";
 
 type ClientsSectionProps = {
   viewport: ViewportOptions;
@@ -13,10 +17,12 @@ type ClientsSectionProps = {
 
 const ClientsSection = ({ viewport }: ClientsSectionProps) => {
   const { t } = useLanguage();
+  const isMobile = useIsMobile();
 
   const [clients, setClients] = useState<Client[]>([]);
   const [loading, setLoading] = useState(true);
-  const [hasClients, setHasClients] = useState(false);
+
+  const hasClients = clients.length > 0;
 
   useEffect(() => {
     let alive = true;
@@ -26,7 +32,6 @@ const ClientsSection = ({ viewport }: ClientsSectionProps) => {
       .then((res) => {
         if (!alive) return;
         setClients(res);
-        setHasClients(!!res.length);
       })
       .finally(() => alive && setLoading(false));
 
@@ -35,30 +40,41 @@ const ClientsSection = ({ viewport }: ClientsSectionProps) => {
     };
   }, []);
 
-  if (!hasClients) return;
+  const headerSpacing = useMemo(
+    () => (isMobile ? "space-y-3" : "space-y-4"),
+    [isMobile]
+  );
+
+  if (!hasClients) return null;
 
   return (
-    <section id="clients" className="py-24 relative bg-muted/10">
-      <div className="container mx-auto px-4">
-        <motion.h2
-          className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-brand bg-clip-text text-transparent"
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={viewport}
-        >
-          {t("clients.sectionTitle")}
-        </motion.h2>
-
+    <section id="clients" className="w-full min-h-[100vh] flex">
+      <div className="mx-auto w-full max-w-6xl px-4 py-12 md:px-6 md:py-16 flex-1 flex items-center">
         <motion.div
+          className="w-full space-y-10"
           variants={stagger}
           initial="hidden"
           whileInView="show"
           viewport={viewport}
-          className="max-w-5xl mx-auto"
         >
-          <motion.div variants={fadeUp}>
-            <ClientsCarousel items={clients} />
+          <motion.div variants={fadeUp} className={headerSpacing}>
+            <motion.h2
+              className="text-2xl md:text-3xl font-bold text-center mb-16 bg-clip-text"
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={viewport}
+            >
+              {t("clients.sectionTitle")}
+            </motion.h2>
+          </motion.div>
+
+          <motion.div variants={fadeUp} className="w-full">
+            <div className="mx-auto w-full max-w-5xl rounded-xl  p-5 shadow-sm">
+              <ClientsCarousel items={clients} />
+            </div>
+
+            {loading ? null : null}
           </motion.div>
         </motion.div>
       </div>

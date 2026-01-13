@@ -42,7 +42,7 @@ const HeroSection = () => {
           transition={{ delay: 0.16, ease: EASE_OUT }}
         >
           <Button
-            onClick={() => scrollToSection("contact")}
+            onClick={() => scrollToSection("packages")}
             className="inline-flex items-center justify-center
                   h-10 px-6 rounded-full
                   text-base font-semibold

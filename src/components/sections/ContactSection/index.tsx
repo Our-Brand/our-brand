@@ -24,15 +24,17 @@ const ContactSection = ({ viewport }: ContactSectionProps) => {
   return (
     <section id="contact" className="py-24">
       <div className="container mx-auto px-4">
-        <motion.h2
-          className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-brand bg-clip-text text-transparent"
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={viewport}
-        >
-          {t("contact.sectionTitle")}
-        </motion.h2>
+        <motion.div variants={fadeUp}>
+          <motion.h2
+            className="text-4xl md:text-5xl font-bold text-center mb-16 bg-clip-text"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={viewport}
+          >
+            {t("contact.sectionTitle")}
+          </motion.h2>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto items-stretch">
           <motion.div
@@ -42,7 +44,7 @@ const ContactSection = ({ viewport }: ContactSectionProps) => {
             viewport={viewport}
             className="h-full"
           >
-            <Card className="bg-card border-border shadow-[0_8px_30px_rgb(0,0,0,0.4)] h-full flex flex-col">
+            <Card className="bg-card border-border shadow-[0_8px_30px_rgb(0,0,0,0.4)] h-full flex flex-col p-8">
               <CardHeader>
                 <CardTitle className="text-2xl">
                   {t("contact.form.title")}
@@ -62,7 +64,7 @@ const ContactSection = ({ viewport }: ContactSectionProps) => {
             viewport={viewport}
             className="h-full"
           >
-            <Card className="bg-card border-border shadow-[0_8px_30px_rgb(0,0,0,0.4)] h-full flex flex-col">
+            <Card className="bg-card border-border shadow-[0_8px_30px_rgb(0,0,0,0.4)] h-full flex flex-col p-8">
               <CardHeader>
                 <CardTitle className="text-2xl">
                   {t("contact.info.title")}

@@ -81,6 +81,47 @@
     }
   },
 
+  "context": {
+    "badge": "Contexto",
+    "title": "Porquê a Our-brand?",
+    "subtitle": "Unimos estratégia, branding e engenharia para transformar ideias em produtos e experiências digitais com impacto.",
+    "why": {
+      "title": "O que fazemos",
+      "items": {
+        "one": "Otimizações com AI para melhorar performance e conversões",
+        "two": "Desenvolvimento de sites rápidos, responsivos e orientados a resultados",
+        "three": "Desenvolvimento de apps e plataformas sob medida",
+        "four": "Branding e SEO para aumentar visibilidade e autoridade"
+      }
+    },
+    "focus": {
+      "title": "O nosso foco",
+      "items": {
+        "one": "Criatividade aplicada com AI",
+        "two": "Desenvolvimento de AI e automações para escalar processos",
+        "three": "Estratégia e execução com entregas consistentes"
+      }
+    },
+    "how": {
+      "title": "Como funciona?",
+      "subtitle": "Um processo simples e transparente do briefing ao lançamento.",
+      "steps": {
+        "1": {
+          "title": "Da ideia ao plano",
+          "description": "Alinhamos objetivos, público e proposta de valor para definir o caminho certo."
+        },
+        "2": {
+          "title": "AI em ação",
+          "description": "Exploramos dados, conteúdo e automações para acelerar criação e decisões."
+        },
+        "3": {
+          "title": "Publicação & performance",
+          "description": "Lançamos, monitorizamos e iteramos para otimizar resultados continuamente."
+        }
+      }
+    }
+  },
+
   "clients": {
     "sectionTitle": "Clientes & Colaborações"
   },
@@ -177,7 +218,7 @@
   "privacy": {
     "backToHome": "Voltar ao Início",
     "title": "Política de Privacidade",
-    "lastUpdated": "Última atualização: novembro de",
+    "lastUpdated": "Última atualização: novembro de 2025",
     "section1": {
       "title": "1. Informações que Recolhemos",
       "p1": "Recolhemos informações que nos fornece diretamente, incluindo quando cria uma conta, utiliza os nossos serviços, comunica connosco ou participa em funcionalidades interativas dos nossos serviços.",
@@ -226,7 +267,7 @@
   "terms": {
     "backToHome": "Voltar ao Início",
     "title": "Termos & Condições",
-    "lastUpdated": "Última atualização: novembro de",
+    "lastUpdated": "Última atualização: novembro de 2025",
     "section1": {
       "title": "1. Aceitação dos Termos",
       "p1": "Ao aceder e utilizar os nossos serviços, aceita e concorda em ficar vinculado aos termos e disposições deste acordo. Se não concorda com estes termos, não utilize os nossos serviços."

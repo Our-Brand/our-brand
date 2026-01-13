@@ -93,7 +93,7 @@ const ClientsCarousel = ({
   if (!safeItems.length) {
     return (
       <Card className="bg-card border-border shadow-[0_8px_30px_rgb(0,0,0,0.4)]">
-        <CardContent className="py-10 text-center text-muted-foreground">
+        <CardContent className="py-10 text-center ">
           {t("no_clients_yet")}
         </CardContent>
       </Card>
@@ -128,7 +128,7 @@ const ClientsCarousel = ({
           </Button>
 
           {/* Fixed frame */}
-          <div className="w-full h-[300px] max-w-4xl flex justify-center">
+          <div className="w-full h-[400px] max-w-4xl flex justify-center">
             <AnimatePresence
               initial={false}
               mode="popLayout"
@@ -190,36 +190,39 @@ const ClientsCarousel = ({
                   </div>
 
                   {/* Main content (stable layout) */}
-                  <CardContent className="h-full flex flex-col items-center justify-center text-center px-10 py-10 gap-5">
-                    <div className="flex items-center justify-center min-h-14 md:min-h-16">
-                      {hasLogo ? (
-                        <img
-                          src={current.companyImg}
-                          alt={current.title}
-                          className="h-12 md:h-14 w-auto object-contain"
-                          loading="lazy"
-                        />
-                      ) : null}
+                  <CardContent className="h-full flex flex-col px-10 py-10">
+                    {/* Main centered block */}
+                    <div className="flex flex-1 flex-col items-center justify-center text-center gap-5">
+                      <div className="flex items-center justify-center min-h-14 md:min-h-16">
+                        {hasLogo ? (
+                          <img
+                            src={current.companyImg}
+                            alt={current.title}
+                            className="h-12 md:h-14 w-auto object-contain"
+                            loading="lazy"
+                          />
+                        ) : null}
+                      </div>
+
+                      <a
+                        href={current.companyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex focus:outline-none focus:ring-2 focus:ring-primary/60 rounded-md"
+                        aria-label={`Open ${current.title} website`}
+                      >
+                        <h3 className="text-3xl md:text-4xl font-bold tracking-tight hover:underline underline-offset-4">
+                          {current.title}
+                        </h3>
+                      </a>
+
+                      <p className="text-muted-foreground text-sm">
+                        {t("hover_to_learn_more")}
+                      </p>
                     </div>
 
-                    <a
-                      href={current.companyUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex focus:outline-none focus:ring-2 focus:ring-primary/60 rounded-md"
-                      aria-label={`Open ${current.title} website`}
-                    >
-                      <h3 className="text-3xl md:text-4xl font-bold tracking-tight hover:underline underline-offset-4">
-                        {current.title}
-                      </h3>
-                    </a>
-
-                    <p className="text-muted-foreground text-sm">
-                      {t("hover_to_learn_more")}
-                    </p>
-
-                    {/* Dots + mobile nav pinned */}
-                    <div className="mt-auto pt-2 flex items-center justify-between w-full gap-4">
+                    {/* Footer pinned to bottom */}
+                    <div className="pt-6 flex items-center justify-between w-full gap-4">
                       <div className="flex md:hidden gap-2">
                         <Button
                           variant="outline"

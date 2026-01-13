@@ -3,6 +3,7 @@ import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { Package } from "@/types/package";
+import { motion, Variants } from "framer-motion";
 
 const cardVariants = cva(
   [
@@ -196,6 +197,73 @@ export function PackageCard({
   );
 }
 
+const cardIn: Variants = {
+  hidden: { opacity: 0, y: 14, scale: 0.98 },
+  show: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.28, ease: "easeOut" as const },
+  },
+};
+
+function StepCard({
+  index,
+  title,
+  description,
+  Icon,
+}: {
+  index: number;
+  title: string;
+  description: string;
+  Icon: React.ComponentType<{ className?: string }>;
+}) {
+  return (
+    <motion.div
+      variants={cardIn}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.35 }}
+      whileHover={{ y: -4, scale: 1.01 }}
+      transition={{ duration: 0.22, ease: "easeOut" as const }}
+      className="group relative rounded-xl border p-5 shadow-sm h-full overflow-hidden"
+    >
+      {/* always-present (subtle) hover style + stronger on hover */}
+      <div className="pointer-events-none absolute inset-0 opacity-100 transition-opacity duration-200">
+        <div className="absolute inset-0 bg-muted/30 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+        <div className="absolute inset-0 ring-1 ring-transparent group-hover:ring-primary/20 transition-[box-shadow,ring-color] duration-200" />
+      </div>
+
+      <div className="relative flex h-full items-start gap-3">
+        <motion.div
+          initial={false}
+          whileHover={{ scale: 1.06, rotate: -2 }}
+          transition={{ duration: 0.2, ease: "easeOut" as const }}
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border bg-background"
+        >
+          <Icon className="h-5 w-5 text-muted-foreground" />
+        </motion.div>
+
+        <div className="min-w-0 flex h-full flex-col">
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-medium text-muted-foreground">
+              {index.toString().padStart(2, "0")}
+            </span>
+            <h4 className="truncate text-base font-semibold">{title}</h4>
+          </div>
+
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground line-clamp-3 flex-1">
+            {description}
+          </p>
+
+          {/* underline accent that animates on hover */}
+          <div className="mt-4 h-1 w-10 rounded-full bg-muted transition-all duration-200 group-hover:w-16 group-hover:bg-primary/60" />
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 export {
   Card,
   CardHeader,
@@ -205,4 +273,5 @@ export {
   CardDescription,
   CardFooter,
   SkeletonCard,
+  StepCard,
 };

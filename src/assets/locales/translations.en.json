@@ -81,12 +81,53 @@
     }
   },
 
+  "context": {
+    "badge": "Context",
+    "title": "Why Our-brand?",
+    "subtitle": "We combine strategy, branding and engineering to turn ideas into impactful digital products and experiences.",
+    "why": {
+      "title": "What we do",
+      "items": {
+        "one": "AI-powered optimizations to improve performance and conversions",
+        "two": "Development of fast, responsive, and results-driven websites",
+        "three": "Custom development of apps and platforms",
+        "four": "Branding and SEO to increase visibility and authority"
+      }
+    },
+    "focus": {
+      "title": "Our focus",
+      "items": {
+        "one": "Creativity enhanced by AI",
+        "two": "AI development and automations to scale processes",
+        "three": "Strategy and execution with consistent delivery"
+      }
+    },
+    "how": {
+      "title": "How it works",
+      "subtitle": "A simple and transparent process from briefing to launch.",
+      "steps": {
+        "1": {
+          "title": "From idea to plan",
+          "description": "We align goals, audience, and value proposition to define the right path."
+        },
+        "2": {
+          "title": "AI in action",
+          "description": "We leverage data, content, and automation to accelerate creation and decision-making."
+        },
+        "3": {
+          "title": "Launch & performance",
+          "description": "We launch, monitor, and iterate continuously to optimize results."
+        }
+      }
+    }
+  },
+
   "clients": {
     "sectionTitle": "Clients & Collaborations"
   },
 
   "team": {
-    "sectionTitle": "Meet Our Team",
+    "title": "Meet Our Team",
     "member1": {
       "name": "Paulo Ribeiro",
       "role": "Chief Executive Officer",
@@ -177,7 +218,7 @@
   "privacy": {
     "backToHome": "Back to Home",
     "title": "Privacy Policy",
-    "lastUpdated": "Last updated: November",
+    "lastUpdated": "Last updated: November 2025",
     "section1": {
       "title": "1. Information We Collect",
       "p1": "We collect information that you provide directly to us, including when you create an account, use our services, communicate with us, or participate in any interactive features of our services.",
@@ -226,7 +267,7 @@
   "terms": {
     "backToHome": "Back to Home",
     "title": "Terms & Conditions",
-    "lastUpdated": "Last updated: November",
+    "lastUpdated": "Last updated: November 2025",
     "section1": {
       "title": "1. Acceptance of Terms",
       "p1": "By accessing and using our services, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to these terms, please do not use our services."

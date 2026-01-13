@@ -1,15 +1,14 @@
 import { useMemo } from "react";
 
 import Nav from "@/components/Nav";
-// import Footer from "@/components/Footer";
+import Footer from "@/components/Footer";
 
 import HeroSection from "@/components/sections/HeroSection";
-// import MissionSection from "@/components/sections/MissionSection";
-// import ClientsSection from "@/components/sections/ClientsSection";
-// import TeamSection from "@/components/sections/TeamSection";
-// import ContactSection from "@/components/sections/ContactSection";
+import TeamSection from "@/components/sections/TeamSection";
 import PackageSection from "@/components/sections/PackageSection";
 import ContextSection from "@/components/sections/ContextSection";
+import ClientsSection from "@/components/sections/ClientsSection";
+import ContactSection from "@/components/sections/ContactSection";
 
 const Home = () => {
   const viewport = useMemo(() => ({ once: true, amount: 0.2 }), []);
@@ -20,8 +19,12 @@ const Home = () => {
 
       <main>
         <HeroSection />
-        <PackageSection viewport={viewport} />
-        <ContextSection viewport={viewport} />
+        <PackageSection />
+        <ContextSection />
+        <TeamSection viewport={viewport} />
+        <ClientsSection viewport={viewport} />
+        <ContactSection viewport={viewport} />
+        <Footer />
       </main>
     </div>
   );

@@ -6,15 +6,15 @@ const PrivacyPolicy = () => {
   const { t } = useLanguage();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen ">
       <div className="container mx-auto px-4 py-12">
-        <Card className="bg-card border-border shadow-[0_8px_30px_rgb(0,0,0,0.4)] max-w-4xl mx-auto">
+        <Card className=" border-border shadow-[0_8px_30px_rgb(0,0,0,0.4)] max-w-4xl mx-auto p-8">
           <CardHeader>
-            <CardTitle className="text-4xl bg-gradient-brand bg-clip-text text-transparent">
+            <CardTitle className="text-4xlbg-clip-text">
               {t("privacy.title")}
             </CardTitle>
             <p className="text-muted-foreground mt-2">
-              {t("privacy.lastUpdated")} {new Date().getUTCFullYear()}
+              {t("privacy.lastUpdated")}
             </p>
           </CardHeader>
 

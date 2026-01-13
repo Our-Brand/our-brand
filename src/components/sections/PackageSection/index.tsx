@@ -7,25 +7,17 @@ import { SkeletonCard, PackageCard } from "@/components/ui/card";
 import { Package } from "@/types/package";
 import { packageService } from "@/services/endpoints/packageService";
 
-type PackageSectionProps = {
-  viewport: ViewportOptions;
-};
-
-// ✅ strongly typed easing tuple (fixes the TS error)
 const EASE_OUT: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
-// Container only staggers; no movement here.
 const containerVariants: Variants = {
   hidden: {},
   show: {
     transition: {
-      staggerChildren: 0.1, // reduce if you want them to feel more "together"
-      delayChildren: 0.06,
+      staggerChildren: 0.1,
     },
   },
 };
 
-// ✅ Cards pop from down -> up (no left/right)
 const cardVariants: Variants = {
   hidden: {
     opacity: 0,
@@ -54,7 +46,7 @@ const titleVariants: Variants = {
   },
 };
 
-const PackageSection = ({ viewport }: PackageSectionProps) => {
+const PackageSection = () => {
   const { t } = useLanguage();
 
   const [packages, setPackages] = useState<Package[]>([]);
@@ -92,6 +84,7 @@ const PackageSection = ({ viewport }: PackageSectionProps) => {
 
   return (
     <section
+      id="packages"
       ref={ref}
       className={`relative overflow-hidden min-h-screen flex items-center ${spacing.outer}`}
     >
