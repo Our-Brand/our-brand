@@ -116,7 +116,7 @@ const TeamSection = ({ viewport }: TeamSectionProps) => {
         transition={{ duration: 0.22, ease: "easeOut" as const }}
         className="h-full"
       >
-        <Card className="group relative h-full overflow-hidden rounded-xl bg-background border shadow-sm">
+        <Card className="group relative h-full overflow-hidden rounded-xl bg-card/80 border shadow-sm">
           {/* hover overlay */}
           <div className="pointer-events-none absolute inset-0">
             <div className="absolute inset-0 bg-muted/30 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
@@ -124,7 +124,7 @@ const TeamSection = ({ viewport }: TeamSectionProps) => {
           </div>
 
           <CardHeader className="relative text-center">
-            <div className="mx-auto my-4 h-24 w-24 overflow-hidden shadow-sm rounded-full border bg-background  ">
+            <div className="mx-auto my-4 h-24 w-24 overflow-hidden shadow-sm rounded-full border">
               {hasAvatar ? (
                 <img
                   src={member.avatarUrl!}

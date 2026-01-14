@@ -225,7 +225,7 @@ function StepCard({
       viewport={{ once: true, amount: 0.35 }}
       whileHover={{ y: -4, scale: 1.01 }}
       transition={{ duration: 0.22, ease: "easeOut" as const }}
-      className="group relative rounded-xl border p-5 shadow-sm h-full overflow-hidden"
+      className="group relative rounded-xl border p-5 shadow-sm h-full overflow-hidden bg-card/80"
     >
       {/* always-present (subtle) hover style + stronger on hover */}
       <div className="pointer-events-none absolute inset-0 opacity-100 transition-opacity duration-200">

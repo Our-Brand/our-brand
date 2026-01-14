@@ -135,42 +135,10 @@ All colors MUST be HSL.
     z-index: -1;
     pointer-events: none;
 
-    background-image: url("/src/assets/images/wave.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-
     opacity: 0.08;
     mix-blend-mode: screen;
 
-    /* reveal from left -> right */
     clip-path: inset(0 100% 0 0);
-
-    /* 2 animations:
-       1) reveal (once)
-       2) float up/down (infinite) starts AFTER reveal finishes
-    */
-    animation: wave-reveal-ltr 3.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both,
-      wave-float 7s ease-in-out 3.9s infinite alternate;
-  }
-
-  @keyframes wave-reveal-ltr {
-    from {
-      clip-path: inset(0 100% 0 0);
-    }
-    to {
-      clip-path: inset(0 0 0 0);
-    }
-  }
-
-  /* subtle vertical motion */
-  @keyframes wave-float {
-    from {
-      transform: translate3d(0, 0, 0);
-    }
-    to {
-      transform: translate3d(0, -18px, 0);
-    }
   }
 
   @media (prefers-reduced-motion: reduce) {

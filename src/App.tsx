@@ -12,9 +12,8 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import Careers from "@/pages/Careers";
 import ComingSoon from "@/pages/ComingSoon";
-
-// ✅ layout that renders Nav/Footer once + transitions in the outlet
 import Layout from "@/components/Layout";
+import WaveLines from "@/components/WaveLines";
 
 const queryClient = new QueryClient();
 
@@ -22,30 +21,36 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <LanguageProvider>
       <TooltipProvider>
-        <Toaster />
-        <Sonner />
+        <div className="relative min-h-screen">
+          <div className="fixed inset-0 -z-10 pointer-events-none">
+            <WaveLines />
+          </div>
 
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<ComingSoon />} />
-            <Route path="/coming-soon" element={<ComingSoon />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route
-              path="/terms-and-conditions"
-              element={<TermsAndConditions />}
-            />
-            <Route path="/404" element={<NotFound />} />
+          <Toaster />
+          <Sonner />
 
-            <Route element={<Layout />}>
-              <Route path="/home" element={<Home />} />
-              <Route path="/careers" element={<Careers />} />
-            </Route>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<ComingSoon />} />
+              <Route path="/coming-soon" element={<ComingSoon />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route
+                path="/terms-and-conditions"
+                element={<TermsAndConditions />}
+              />
+              <Route path="/404" element={<NotFound />} />
 
-            <Route path="*" element={<Navigate to="/404" replace />} />
-          </Routes>
-        </BrowserRouter>
+              <Route element={<Layout />}>
+                <Route path="/home" element={<Home />} />
+                <Route path="/careers" element={<Careers />} />
+              </Route>
 
-        <Analytics />
+              <Route path="*" element={<Navigate to="/404" replace />} />
+            </Routes>
+          </BrowserRouter>
+
+          <Analytics />
+        </div>
       </TooltipProvider>
     </LanguageProvider>
   </QueryClientProvider>

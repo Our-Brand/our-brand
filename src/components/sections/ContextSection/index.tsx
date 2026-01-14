@@ -54,7 +54,7 @@ const ContextSection = () => {
 
   return (
     <section id="context" className="w-full min-h-[100vh] flex">
-      <div className="mx-auto w-full max-w-6xl px-4 py-12 md:px-6 md:py-16 flex-1 flex items-center">
+      <div className="mx-auto w-full max-w-6xl px-2 py-12 md:px-4 md:py-16 flex-1 flex items-center">
         <motion.div
           variants={container}
           initial="hidden"
@@ -88,7 +88,7 @@ const ContextSection = () => {
               viewport={{ once: true, amount: 0.35 }}
               whileHover={panelHover}
               transition={{ duration: 0.22, ease: "easeOut" as const }}
-              className="group relative rounded-xl border p-5 shadow-sm h-full overflow-hidden"
+              className="group relative rounded-xl border p-5 shadow-sm h-full overflow-hidden bg-card/80"
             >
               {/* hover overlay (subtle always, stronger on hover) */}
               <div className="pointer-events-none absolute inset-0">
@@ -147,7 +147,7 @@ const ContextSection = () => {
               viewport={{ once: true, amount: 0.35 }}
               whileHover={panelHover}
               transition={{ duration: 0.22, ease: "easeOut" as const }}
-              className="group relative rounded-xl border p-5 shadow-sm h-full overflow-hidden"
+              className="group relative rounded-xl border p-5 shadow-sm h-full overflow-hidden bg-card/80"
             >
               <div className="pointer-events-none absolute inset-0">
                 <div className="absolute inset-0 bg-muted/30 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />

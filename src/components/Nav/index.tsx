@@ -16,9 +16,9 @@ const Nav = () => {
   const location = useLocation();
 
   const navItems = [
-    { key: "team", section: "team", hide: false },
-    { key: "careers", section: "careers", hide: false },
+    { key: "team", section: "team", hide: true },
     { key: "contact", section: "contact", hide: false },
+    { key: "careers", section: "careers", hide: false },
   ] as const;
 
   type NavKey = (typeof navItems)[number]["key"];

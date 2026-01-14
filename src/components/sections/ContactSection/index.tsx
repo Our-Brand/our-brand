@@ -29,7 +29,7 @@ const ContactSection = ({ viewport }: ContactSectionProps) => {
 
   return (
     <section id="contact" className="py-24">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-36">
         <motion.div variants={fadeUp}>
           <motion.h2
             className="text-2xl md:text-3xl font-bold text-center mb-10 bg-clip-text"
