@@ -11,7 +11,6 @@ const cardVariants = cva(
     "bg-white/5 backdrop-blur-md",
     "ring-2",
     "transition-all duration-300 ease-out",
-    "hover:-translate-y-2 hover:scale-[1.01]",
   ].join(" "),
   {
     variants: {

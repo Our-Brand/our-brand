@@ -38,7 +38,7 @@ const NotFound = () => {
     <>
       <Nav />
 
-      <div className="relative flex flex-col min-h-[92vh] justify-center items-center bg-background text-foreground overflow-hidden">
+      <div className="relative flex flex-col min-h-[90vh] justify-center items-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-brand-subtle opacity-70 pointer-events-none" />
 
         <div className="absolute top-10 left-0 h-[450px] w-[450px] rounded-full bg-primary/30 blur-[120px] animate-pulse-glow pointer-events-none" />
@@ -87,7 +87,7 @@ const NotFound = () => {
 
               <a
                 href="/"
-                className="inline-flex items-center justify-center rounded-md bg-primary px-5 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
+                className="inline-flex items-center justify-center h-10 px-6 rounded-full text-base font-semibold text-foreground bg-white/5 border border-white/15 backdrop-blur transition-all duration-200 ease-out hover:bg-white/10 hover:-translate-y-[1px] hover:shadow-lg active:translate-y-0 whitespace-nowrap "
               >
                 {t("notFound.backToHome")}
               </a>

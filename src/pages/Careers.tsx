@@ -95,19 +95,14 @@ const Careers = () => {
       {/* Page heading */}
       <section className="mt-24 pt-24 pb-8 md:pb-12">
         <div className="container mx-auto px-6">
-          <motion.div
-            variants={fadeUp}
-            initial={prefersReducedMotion ? false : "hidden"}
-            whileInView={prefersReducedMotion ? undefined : "show"}
-            viewport={{ once: false, amount: 0.25 }}
-          >
+          <div>
             <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">
               {t("career.title")}
             </h1>
             <p className="mt-2 text-muted-foreground leading-relaxed">
               {t("career.subtitle")}
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -274,7 +269,7 @@ const Careers = () => {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="py-24">
+      <section id="contact" className="py-24 mb-12">
         <div className="container mx-auto px-6">
           <motion.div
             variants={popUp}

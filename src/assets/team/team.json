@@ -16,11 +16,5 @@
     "name": "team.member3.name",
     "role": "team.member3.role",
     "bio": "team.member3.bio"
-  },
-  {
-    "id": "4",
-    "name": "team.member4.name",
-    "role": "team.member4.role",
-    "bio": "team.member4.bio"
   }
 ]

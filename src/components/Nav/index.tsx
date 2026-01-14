@@ -16,22 +16,12 @@ const Nav = () => {
   const location = useLocation();
 
   const navItems = [
-    {
-      key: "home",
-      section: "home",
-      hide: false,
-    },
-    {
-      key: "careers",
-      section: "careers",
-      hide: false,
-    },
+    { key: "team", section: "team", hide: false },
+    { key: "careers", section: "careers", hide: false },
+    { key: "contact", section: "contact", hide: false },
   ] as const;
 
-  const ROUTES: Record<string, string> = {
-    home: "/home",
-    careers: "/careers",
-  };
+  type NavKey = (typeof navItems)[number]["key"];
 
   const scrollToSection = (id: string, behavior: ScrollBehavior = "smooth") => {
     document.getElementById(id)?.scrollIntoView({ behavior });
@@ -41,24 +31,37 @@ const Nav = () => {
     window.scrollTo({ top: 0, left: 0, behavior });
   };
 
-  const handleScroll = (section: string) => {
-    const route = ROUTES[section];
-
-    if (route) {
-      if (location.pathname === route) {
-        scrollToTop();
-        return;
-      }
-
-      navigate(route, { replace: false });
-
-      requestAnimationFrame(() => scrollToTop());
-
+  const goHomeAndScroll = (section: string) => {
+    // If we're already on /home, just scroll
+    if (location.pathname === "/home") {
+      scrollToSection(section);
       return;
     }
 
-    // in-page scroll
-    scrollToSection(section);
+    // Navigate to /home, then scroll after DOM paints
+    navigate("/home", { replace: false });
+    requestAnimationFrame(() => {
+      scrollToTop();
+      // small delay to ensure section exists after route transition
+      setTimeout(() => scrollToSection(section), 0);
+    });
+  };
+
+  const handleNav = (key: NavKey) => {
+    if (key === "careers") {
+      // If not on /careers, go there; if already there, just scroll top
+      if (location.pathname !== "/careers") {
+        navigate("/careers", { replace: false });
+        requestAnimationFrame(() => scrollToTop());
+      } else {
+        scrollToTop();
+      }
+      return;
+    }
+
+    // For all other items: if on /careers, go to /home and scroll to section
+    // Otherwise just go/scroll on /home
+    goHomeAndScroll(key);
   };
 
   return (
@@ -83,7 +86,7 @@ const Nav = () => {
                 .map((item) => (
                   <Button
                     key={item.key}
-                    onClick={() => handleScroll(item.section)}
+                    onClick={() => handleNav(item.key)}
                     variant="ghost"
                     className="
                        h-10 px-4 rounded-full
@@ -153,7 +156,6 @@ const Nav = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              {/* Clean CTA button */}
               <a
                 href="https://calendly.com/our-brand"
                 target="_blank"

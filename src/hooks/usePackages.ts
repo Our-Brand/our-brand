@@ -7,24 +7,16 @@ export const usePackages = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    let alive = true;
-
     setLoading(true);
 
     packageService
       .list()
       .then((res) => {
-        if (!alive) return;
         setPackages(res);
       })
       .finally(() => {
-        if (!alive) return;
         setLoading(false);
       });
-
-    return () => {
-      alive = false;
-    };
   }, []);
 
   return { packages, loading };

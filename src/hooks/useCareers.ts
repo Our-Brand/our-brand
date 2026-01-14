@@ -7,24 +7,16 @@ export const useCareers = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    let alive = true;
-
     setLoading(true);
 
     careerService
       .list()
       .then((res) => {
-        if (!alive) return;
         setCareers(res);
       })
       .finally(() => {
-        if (!alive) return;
         setLoading(false);
       });
-
-    return () => {
-      alive = false;
-    };
   }, []);
 
   return { careers, loading };

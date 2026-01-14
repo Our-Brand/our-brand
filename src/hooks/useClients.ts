@@ -7,24 +7,16 @@ export const useClients = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    let alive = true;
-
     setLoading(true);
 
     clientService
       .list()
       .then((res) => {
-        if (!alive) return;
         setClients(res);
       })
       .finally(() => {
-        if (!alive) return;
         setLoading(false);
       });
-
-    return () => {
-      alive = false;
-    };
   }, []);
 
   return { clients, loading };
