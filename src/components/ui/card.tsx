@@ -144,6 +144,35 @@ function SkeletonCard({ featured }: { featured?: boolean }) {
   );
 }
 
+function renderFirstSentenceBold(text: string) {
+  // Split on the first sentence end: ".", "!" or "?"
+  // Keeps the punctuation with the first sentence.
+  const match = text.match(/^(.+?[.!?])(\s+|$)([\s\S]*)$/);
+
+  if (!match) {
+    // No sentence punctuation found — just bold the whole thing lightly
+    return <span className="font-semibold">{text}</span>;
+  }
+
+  const first = match[1];
+  const rest = match[3];
+
+  return (
+    <>
+      <span className="font-semibold">{first}</span>
+      {rest ? <span> {rest}</span> : null}
+    </>
+  );
+}
+
+function parseDescription(desc: string) {
+  // Supports:
+  // - blank lines => spacer
+  // - "• " bullet lines
+  // - normal text lines
+  return desc.split("\n").map((raw) => raw.trim());
+}
+
 export function PackageCard({
   pkg,
   t,
@@ -156,6 +185,43 @@ export function PackageCard({
     : pkg.id === "elite"
     ? "elite"
     : "default";
+
+  const lines = parseDescription(t(pkg.description));
+
+  // Build blocks: paragraphs + bullet groups
+  const blocks: Array<
+    | { type: "spacer" }
+    | { type: "p"; text: string }
+    | { type: "ul"; items: string[] }
+  > = [];
+
+  let currentBullets: string[] = [];
+
+  const flushBullets = () => {
+    if (currentBullets.length) {
+      blocks.push({ type: "ul", items: currentBullets });
+      currentBullets = [];
+    }
+  };
+
+  for (const line of lines) {
+    if (!line) {
+      flushBullets();
+      blocks.push({ type: "spacer" });
+      continue;
+    }
+
+    const isBullet = line.startsWith("•");
+    const text = isBullet ? line.replace(/^•\s?/, "") : line;
+
+    if (isBullet) {
+      currentBullets.push(text);
+    } else {
+      flushBullets();
+      blocks.push({ type: "p", text });
+    }
+  }
+  flushBullets();
 
   return (
     <Card
@@ -181,15 +247,44 @@ export function PackageCard({
       <div className="flex flex-col items-center text-center">
         <CardHeader>
           <CardTitle>{t(pkg.title)}</CardTitle>
-          <CardPrice>{pkg.price}</CardPrice>
+          <CardPrice>{pkg.price} €</CardPrice>
         </CardHeader>
 
-        {/* Placeholder content */}
-        <CardContent className="w-full space-y-3">
-          <div className="h-3 w-11/12 rounded bg-white/10" />
-          <div className="h-3 w-10/12 rounded bg-white/10" />
-          <div className="h-3 w-9/12 rounded bg-white/10" />
-          <div className="h-3 w-8/12 rounded bg-white/10" />
+        <CardContent
+          className={[
+            "w-full space-y-4",
+            "text-start",
+            "font-medium",
+            "text-white/80",
+          ].join(" ")}
+        >
+          {blocks.map((b, idx) => {
+            if (b.type === "spacer") return <div key={idx} className="h-2" />;
+
+            if (b.type === "p") {
+              return (
+                <p key={idx} className="text-sm leading-relaxed">
+                  {renderFirstSentenceBold(b.text)}
+                </p>
+              );
+            }
+
+            return (
+              <ul key={idx} className="mt-1 space-y-2 list-none pl-0">
+                {b.items.map((item) => (
+                  <li key={item} className="flex gap-3">
+                    <span
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-white/50"
+                      aria-hidden="true"
+                    />
+                    <span className="text-sm leading-relaxed">
+                      {renderFirstSentenceBold(item)}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            );
+          })}
         </CardContent>
       </div>
     </Card>

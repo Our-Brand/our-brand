@@ -62,6 +62,20 @@ const PackageSection = () => {
     margin: "-15% 0px -15% 0px",
   });
 
+  const handlePackageClick = (paymentLink: string) => {
+    window.open(paymentLink, "_blank", "noopener,noreferrer");
+  };
+
+  const handleOnKeyDownPackage = (
+    e: React.KeyboardEvent<HTMLDivElement>,
+    paymentLink: string
+  ) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      window.open(paymentLink, "_blank", "noopener,noreferrer");
+    }
+  };
+
   return (
     <section
       id="packages"
@@ -98,7 +112,15 @@ const PackageSection = () => {
             </>
           ) : (
             packages.map((pkg) => (
-              <motion.div key={pkg.id} variants={cardVariants}>
+              <motion.div
+                key={pkg.id}
+                variants={cardVariants}
+                onClick={() => handlePackageClick(pkg.paymentLink)}
+                className="cursor-pointer"
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => handleOnKeyDownPackage(e, pkg.paymentLink)}
+              >
                 <PackageCard pkg={pkg} t={t} />
               </motion.div>
             ))

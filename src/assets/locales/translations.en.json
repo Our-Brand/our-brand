@@ -70,15 +70,15 @@
     },
     "core": {
       "title": "Core",
-      "description": ""
+      "description": "Get started with credits to build and iterate.\n\n• 20 credits per month\n• Up to 1 active project\n• Use credits to generate features, pages, and logic\n• Ideal for testing ideas and small builds"
     },
     "pro": {
       "title": "Pro",
-      "description": ""
+      "description": "More credits for more serious workers.\n\n• 50 credits per month\n• Up to 2 active projects\n• Faster iteration and larger builds\n• Best for growing products and teams"
     },
     "elite": {
       "title": "Elite",
-      "description": ""
+      "description": "Maximum flexibility for ambitious teams.\n\n• 50 credits per month\n• Up to 5 active projects\n• Built for complex products and scaling\n• Priority access and advanced capabilities"
     }
   },
 

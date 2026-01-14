@@ -61,7 +61,7 @@
 
   "packages": {
     "page": {
-      "title": "Vamos construir o seu futuro"
+      "title": "Vamos construir o seu próximo passo"
     },
     "items": {
       "pro": {
@@ -69,16 +69,16 @@
       }
     },
     "core": {
-      "title": "Base",
-      "description": ""
+      "title": "Core",
+      "description": "Comece a construir com créditos para criar e iterar.\n\n• 20 créditos por mês\n• Até 1 projeto ativo\n• Utilize créditos para gerar funcionalidades, páginas e lógica\n• Ideal para testar ideias e pequenos projetos"
     },
     "pro": {
       "title": "Pro",
-      "description": ""
+      "description": "Mais créditos para trabalho mais sério.\n\n• 50 créditos por mês\n• Até 2 projetos ativos\n• Iteração mais rápida e projetos maiores\n• Ideal para produtos e equipas em crescimento"
     },
     "elite": {
       "title": "Elite",
-      "description": ""
+      "description": "Flexibilidade máxima para equipas ambiciosas.\n\n• 50 créditos por mês\n• Até 5 projetos ativos\n• Pensado para produtos complexos e escaláveis\n• Acesso prioritário e funcionalidades avançadas"
     }
   },
 

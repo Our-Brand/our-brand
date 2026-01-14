@@ -4,4 +4,5 @@ export type Package = {
   description: string;
   price: number;
   isFeatured?: boolean;
+  paymentLink: string;
 };
