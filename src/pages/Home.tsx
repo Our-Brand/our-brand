@@ -1,7 +1,4 @@
-import { useMemo } from "react";
-
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
+import { useEffect, useMemo, useState } from "react";
 
 import HeroSection from "@/components/sections/HeroSection";
 import TeamSection from "@/components/sections/TeamSection";
@@ -10,21 +7,114 @@ import ContextSection from "@/components/sections/ContextSection";
 import ClientsSection from "@/components/sections/ClientsSection";
 import ContactSection from "@/components/sections/ContactSection";
 
+type SectionId =
+  | "hero"
+  | "packages"
+  | "context"
+  | "team"
+  | "clients"
+  | "contact";
+
+function useActiveSection(sectionIds: SectionId[]) {
+  const [active, setActive] = useState<SectionId>(sectionIds[0]);
+
+  useEffect(() => {
+    const els = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[];
+
+    if (!els.length) return;
+
+    const getClosestToCenter = () => {
+      const centerY = window.innerHeight / 2;
+
+      let bestId = active;
+      let bestDist = Number.POSITIVE_INFINITY;
+
+      for (const el of els) {
+        const rect = el.getBoundingClientRect();
+        const elCenter = rect.top + rect.height / 2;
+        const dist = Math.abs(elCenter - centerY);
+
+        if (dist < bestDist) {
+          bestDist = dist;
+          bestId = el.id as SectionId;
+        }
+      }
+
+      setActive(bestId);
+    };
+
+    // initial + on scroll/resize
+    getClosestToCenter();
+
+    let raf = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(getClosestToCenter);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sectionIds.join("|")]);
+
+  return active;
+}
+
+const sectionBase =
+  "relative transition-all duration-500 ease-out will-change-transform";
+
 const Home = () => {
   const viewport = useMemo(() => ({ once: true, amount: 0.2 }), []);
 
+  const sections: SectionId[] = useMemo(
+    () => ["hero", "packages", "context", "team", "clients", "contact"],
+    []
+  );
+
+  const active = useActiveSection(sections);
+
+  const sectionClass = (id: SectionId) =>
+    [
+      sectionBase,
+      active === id
+        ? "opacity-100 blur-0 scale-100 pointer-events-auto"
+        : "opacity-25 blur-[2px] scale-[0.985] pointer-events-none",
+    ].join(" ");
+
   return (
     <div className="relative min-h-[100svh] overflow-x-hidden">
-      <Nav />
-
       <main>
-        <HeroSection />
-        <PackageSection />
-        <ContextSection />
-        <TeamSection viewport={viewport} />
-        <ClientsSection viewport={viewport} />
-        <ContactSection viewport={viewport} />
-        <Footer />
+        <div id="hero" className={sectionClass("hero")}>
+          <HeroSection />
+        </div>
+
+        <div id="packages" className={sectionClass("packages")}>
+          <PackageSection />
+        </div>
+
+        <div id="context" className={sectionClass("context")}>
+          <ContextSection />
+        </div>
+
+        <div id="team" className={sectionClass("team")}>
+          <TeamSection viewport={viewport} />
+        </div>
+
+        <div id="clients" className={sectionClass("clients")}>
+          <ClientsSection viewport={viewport} />
+        </div>
+
+        <div id="contact" className={sectionClass("contact")}>
+          <ContactSection viewport={viewport} />
+        </div>
       </main>
     </div>
   );

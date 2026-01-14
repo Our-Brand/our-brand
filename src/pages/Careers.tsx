@@ -1,6 +1,4 @@
 import ContactForm from "@/components/ContactForm";
-import Footer from "@/components/Footer";
-import Nav from "@/components/Nav";
 import {
   Card,
   CardContent,
@@ -42,9 +40,24 @@ const fadeUp: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE_OUT } },
 };
 
+const SkeletonCard = () => (
+  <Card className="p-8 h-full bg-card/40 backdrop-blur-sm border border-border/60">
+    <CardHeader>
+      <div className="h-6 w-2/3 rounded-md bg-muted animate-pulse" />
+      <div className="mt-4 space-y-2">
+        <div className="h-4 w-full rounded-md bg-muted animate-pulse" />
+        <div className="h-4 w-5/6 rounded-md bg-muted animate-pulse" />
+      </div>
+    </CardHeader>
+    <CardFooter className="pt-0">
+      <div className="h-4 w-1/2 rounded-md bg-muted animate-pulse" />
+    </CardFooter>
+  </Card>
+);
+
 const Careers = () => {
   const { t } = useLanguage();
-  const { careers } = useCareers();
+  const { careers, loading } = useCareers();
   const prefersReducedMotion = useReducedMotion();
 
   const handleCareerClick = React.useCallback((link: string) => {
@@ -74,12 +87,13 @@ const Careers = () => {
     [handleCareerClick]
   );
 
+  const showSkeletons = loading;
+  const skeletonCount = 1;
+
   return (
     <div className="relative min-h-screen">
-      <Nav />
-
       {/* Page heading */}
-      <section className="pt-24 pb-8 md:pb-12">
+      <section className="mt-24 pt-24 pb-8 md:pb-12">
         <div className="container mx-auto px-6">
           <motion.div
             variants={fadeUp}
@@ -110,6 +124,13 @@ const Careers = () => {
             <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
               {t("career.openPositions")}
             </h2>
+
+            {/* small helper line */}
+            {showSkeletons ? (
+              <p className="mt-2 text-sm text-muted-foreground">
+                {t("loading")}
+              </p>
+            ) : null}
           </motion.div>
 
           <motion.div
@@ -117,46 +138,76 @@ const Careers = () => {
             initial={prefersReducedMotion ? false : "hidden"}
             whileInView={prefersReducedMotion ? undefined : "show"}
             viewport={{ once: false, amount: 0.2 }}
-            className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8"
+            className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8 items-stretch"
           >
-            {careers.map((career) => (
-              <motion.div key={career.id} variants={popUp}>
-                <Card
-                  role="button"
-                  tabIndex={0}
-                  onClick={() => handleCareerClick(career.link)}
-                  onKeyDown={(e) => onCardKeyDown(e, career.link)}
-                  className={[
-                    "p-8",
-                    "h-full cursor-pointer",
-                    "bg-card/70 backdrop-blur-sm",
-                    "border border-border/60",
-                    "transition-all duration-200",
-                    "hover:bg-card/85",
-                    "hover:-translate-y-1",
-                    "hover:shadow-[0_0_40px_hsl(var(--ring)/0.18)]",
-                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-                  ].join(" ")}
-                >
+            {showSkeletons
+              ? Array.from({ length: skeletonCount }).map((_, i) => (
+                  <motion.div
+                    key={`sk-${i}`}
+                    variants={popUp}
+                    className="h-full"
+                  >
+                    <SkeletonCard />
+                  </motion.div>
+                ))
+              : null}
+
+            {!showSkeletons && careers.length > 0
+              ? careers.map((career) => (
+                  <div key={career.id} className="h-full">
+                    <Card
+                      role="button"
+                      tabIndex={0}
+                      onClick={() => handleCareerClick(career.link)}
+                      onKeyDown={(e) => onCardKeyDown(e, career.link)}
+                      className={[
+                        "p-8",
+                        "h-full cursor-pointer",
+                        "bg-card/70 backdrop-blur-sm",
+                        "border border-border/60",
+                        "transition-all duration-200",
+                        "hover:bg-card/85",
+                        "hover:-translate-y-1",
+                        "hover:shadow-[0_0_40px_hsl(var(--ring)/0.18)]",
+                        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                      ].join(" ")}
+                    >
+                      <CardHeader>
+                        <CardTitle className="text-xl font-semibold tracking-tight">
+                          {t(career.title)}
+                        </CardTitle>
+                        <CardDescription className="mt-2 leading-relaxed">
+                          {t(career.description)}
+                        </CardDescription>
+                      </CardHeader>
+
+                      <CardFooter className="pt-0">
+                        <CardDescription className="text-sm">
+                          {t(career.type)}{" "}
+                          <span className="text-muted-foreground/60">•</span>{" "}
+                          {t(career.location)}
+                        </CardDescription>
+                      </CardFooter>
+                    </Card>
+                  </div>
+                ))
+              : null}
+
+            {/* ✅ Empty state (still at least 1 card) */}
+            {!showSkeletons && careers.length === 0 ? (
+              <motion.div variants={popUp} className="h-full md:col-span-2">
+                <Card className="p-8 h-full bg-card/70 backdrop-blur-sm border border-border/60">
                   <CardHeader>
                     <CardTitle className="text-xl font-semibold tracking-tight">
-                      {t(career.title)}
+                      {t("career.empty.title")}
                     </CardTitle>
                     <CardDescription className="mt-2 leading-relaxed">
-                      {t(career.description)}
+                      {t("career.empty.subtitle")}
                     </CardDescription>
                   </CardHeader>
-
-                  <CardFooter className="pt-0">
-                    <CardDescription className="text-sm">
-                      {t(career.type)}{" "}
-                      <span className="text-muted-foreground/60">•</span>{" "}
-                      {t(career.location)}
-                    </CardDescription>
-                  </CardFooter>
                 </Card>
               </motion.div>
-            ))}
+            ) : null}
           </motion.div>
         </div>
       </section>
@@ -180,7 +231,6 @@ const Careers = () => {
                 className="h-30 w-auto object-contain md:h-36"
                 alt={t("career.ourBrand.logoAlt")}
               />
-              {/* keeping your "?" but animated with the header */}
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight">
                 ?
               </h2>
@@ -256,8 +306,6 @@ const Careers = () => {
           </motion.div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import type { Career } from "@/types/career";
-import { careerService } from "@/services/endpoints/careerService";
+import { clientService } from "@/services/endpoints/clientService";
+import type { Client } from "@/types/client";
 
-export const useCareers = () => {
-  const [careers, setCareers] = useState<Career[]>([]);
+export const useClients = () => {
+  const [clients, setClients] = useState<Client[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -11,11 +11,11 @@ export const useCareers = () => {
 
     setLoading(true);
 
-    careerService
+    clientService
       .list()
       .then((res) => {
         if (!alive) return;
-        setCareers(res);
+        setClients(res);
       })
       .finally(() => {
         if (!alive) return;
@@ -27,5 +27,5 @@ export const useCareers = () => {
     };
   }, []);
 
-  return { careers, loading };
+  return { clients, loading };
 };

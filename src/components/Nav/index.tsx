@@ -8,25 +8,56 @@ import {
 import { Button } from "../ui/button";
 import { Globe } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Nav = () => {
   const { t, setLanguage } = useLanguage();
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const navItems = [];
+  const navItems = [
+    {
+      key: "home",
+      section: "home",
+      hide: false,
+    },
+    {
+      key: "careers",
+      section: "careers",
+      hide: false,
+    },
+  ] as const;
 
-  const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+  const ROUTES: Record<string, string> = {
+    home: "/home",
+    careers: "/careers",
+  };
+
+  const scrollToSection = (id: string, behavior: ScrollBehavior = "smooth") => {
+    document.getElementById(id)?.scrollIntoView({ behavior });
+  };
+
+  const scrollToTop = (behavior: ScrollBehavior = "auto") => {
+    window.scrollTo({ top: 0, left: 0, behavior });
   };
 
   const handleScroll = (section: string) => {
-    if (section === "careers") {
-      navigate("/careers");
-      scrollTo({ top: 0, behavior: "instant" });
+    const route = ROUTES[section];
+
+    if (route) {
+      if (location.pathname === route) {
+        scrollToTop();
+        return;
+      }
+
+      navigate(route, { replace: false });
+
+      requestAnimationFrame(() => scrollToTop());
+
       return;
     }
 
+    // in-page scroll
     scrollToSection(section);
   };
 
@@ -46,24 +77,22 @@ const Nav = () => {
           {/* Right group: nav + controls */}
           <div className="ml-auto flex items-center gap-450px">
             {/* Nav links */}
-            <div className="hidden md:flex items-center gap-2">
+            <div className="hidden md:flex items-center gap-2 me-4">
               {navItems
                 .filter((item) => !item.hide)
                 .map((item) => (
                   <Button
                     key={item.key}
                     onClick={() => handleScroll(item.section)}
+                    variant="ghost"
                     className="
-                      inline-flex items-center justify-center
-                      h-10 px-4
-                      rounded-full
-                      text-base md:text-lg font-semibold
-                      text-foreground/80 hover:text-foreground
-                      bg-transparent
-                      border border-transparent
+                       h-10 px-4 rounded-full
+                      text-base font-medium
+                      gap-2
+                      backdrop-blur
                       transition-all duration-200 ease-out
-                      hover:bg-white/5
-                      hover:border-white/15
+                      hover:border hover:border-white/10
+                      hover:bg-white/10
                       hover:-translate-y-[1px]
                       hover:shadow-md
                       active:translate-y-0

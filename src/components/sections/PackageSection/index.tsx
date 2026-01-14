@@ -1,11 +1,9 @@
-import { useEffect, useMemo, useState, useRef } from "react";
+import { useMemo, useRef } from "react";
 import { motion, useInView, type Variants } from "framer-motion";
 
-import { ViewportOptions } from "@/types/ui";
 import { useLanguage } from "@/hooks/useLanguage";
 import { SkeletonCard, PackageCard } from "@/components/ui/card";
-import { Package } from "@/types/package";
-import { packageService } from "@/services/endpoints/packageService";
+import { usePackages } from "@/hooks/usePackages";
 
 const EASE_OUT: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -48,25 +46,7 @@ const titleVariants: Variants = {
 
 const PackageSection = () => {
   const { t } = useLanguage();
-
-  const [packages, setPackages] = useState<Package[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    let alive = true;
-
-    packageService
-      .list()
-      .then((res) => {
-        if (!alive) return;
-        setPackages(res);
-      })
-      .finally(() => alive && setLoading(false));
-
-    return () => {
-      alive = false;
-    };
-  }, []);
+  const { packages, loading } = usePackages();
 
   const spacing = useMemo(() => {
     return {

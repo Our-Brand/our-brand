@@ -6,7 +6,7 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 export const data: TeamMember[] = team;
 
 export const teamService = {
-  getTeam: async (): Promise<TeamMember[]> => {
+  list: async (): Promise<TeamMember[]> => {
     await sleep(600);
     return data;
   },

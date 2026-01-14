@@ -141,7 +141,6 @@ All colors MUST be HSL.
     background-size: cover;
 
     opacity: 0.08;
-    filter: invert(1);
     mix-blend-mode: screen;
 
     /* reveal from left -> right */

@@ -3,13 +3,9 @@ import { useLanguage } from "@/hooks/useLanguage";
 import { fadeUp, stagger } from "@/lib/motion";
 import ClientsCarousel from "@/components/ClientsCarousel";
 import { ViewportOptions } from "@/types/ui";
-import { useEffect, useMemo, useState } from "react";
-import { clientService } from "@/services/endpoints/clientService";
-import type { Client } from "@/types/client";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
-import { Sparkles } from "lucide-react";
+import { useMemo } from "react";
 import { useIsMobile } from "@/hooks/useMobile";
+import { useClients } from "@/hooks/useClients";
 
 type ClientsSectionProps = {
   viewport: ViewportOptions;
@@ -18,27 +14,8 @@ type ClientsSectionProps = {
 const ClientsSection = ({ viewport }: ClientsSectionProps) => {
   const { t } = useLanguage();
   const isMobile = useIsMobile();
-
-  const [clients, setClients] = useState<Client[]>([]);
-  const [loading, setLoading] = useState(true);
-
+  const { clients, loading } = useClients();
   const hasClients = clients.length > 0;
-
-  useEffect(() => {
-    let alive = true;
-
-    clientService
-      .list()
-      .then((res) => {
-        if (!alive) return;
-        setClients(res);
-      })
-      .finally(() => alive && setLoading(false));
-
-    return () => {
-      alive = false;
-    };
-  }, []);
 
   const headerSpacing = useMemo(
     () => (isMobile ? "space-y-3" : "space-y-4"),

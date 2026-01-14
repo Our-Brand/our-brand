@@ -13,6 +13,9 @@ import TermsAndConditions from "./pages/TermsAndConditions";
 import Careers from "@/pages/Careers";
 import ComingSoon from "@/pages/ComingSoon";
 
+// ✅ layout that renders Nav/Footer once + transitions in the outlet
+import Layout from "@/components/Layout";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -25,16 +28,19 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<ComingSoon />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/careers" element={<Careers />} />
+            <Route path="/coming-soon" element={<ComingSoon />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route
               path="/terms-and-conditions"
               element={<TermsAndConditions />}
             />
-
-            <Route path="/coming-soon" element={<ComingSoon />} />
             <Route path="/404" element={<NotFound />} />
+
+            <Route element={<Layout />}>
+              <Route path="/home" element={<Home />} />
+              <Route path="/careers" element={<Careers />} />
+            </Route>
+
             <Route path="*" element={<Navigate to="/404" replace />} />
           </Routes>
         </BrowserRouter>

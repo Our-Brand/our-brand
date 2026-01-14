@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
 import { motion, type Variants } from "framer-motion";
 
-import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import {
   Card,
@@ -12,11 +10,11 @@ import {
 } from "@/components/ui/card";
 
 import type { ViewportOptions } from "@/types/ui";
-import { teamService } from "@/services/endpoints/teamService";
 import { useLanguage } from "@/hooks/useLanguage";
 import { useIsMobile } from "@/hooks/useMobile";
-import { Users, Sparkles } from "lucide-react";
+import { Users } from "lucide-react";
 import type { TeamMember } from "@/types/team";
+import { useTeam } from "@/hooks/useTeam";
 
 type TeamSectionProps = {
   viewport: ViewportOptions;
@@ -54,25 +52,7 @@ const cardIn: Variants = {
 const TeamSection = ({ viewport }: TeamSectionProps) => {
   const { t } = useLanguage();
   const isMobile = useIsMobile();
-
-  const [team, setTeam] = useState<TeamMember[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    let alive = true;
-
-    teamService
-      .getTeam()
-      .then((res) => {
-        if (!alive) return;
-        setTeam(res);
-      })
-      .finally(() => alive && setLoading(false));
-
-    return () => {
-      alive = false;
-    };
-  }, []);
+  const { team, loading } = useTeam();
 
   return (
     <section id="team" className="w-full min-h-[100vh] flex">

@@ -6,15 +6,21 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, Variants } from "framer-motion";
 
 import { useLanguage } from "@/hooks/useLanguage";
 import ContactForm from "@/components/ContactForm";
 import { EASE_OUT, fadeUp } from "@/lib/motion";
 import { ViewportOptions } from "@/types/ui";
+import { Separator } from "@/components/ui/separator";
 
 type ContactSectionProps = {
   viewport: ViewportOptions;
+};
+
+const item: Variants = {
+  hidden: { opacity: 0, y: 10 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.28 } },
 };
 
 const ContactSection = ({ viewport }: ContactSectionProps) => {
@@ -26,7 +32,7 @@ const ContactSection = ({ viewport }: ContactSectionProps) => {
       <div className="container mx-auto px-4">
         <motion.div variants={fadeUp}>
           <motion.h2
-            className="text-4xl md:text-5xl font-bold text-center mb-16 bg-clip-text"
+            className="text-2xl md:text-3xl font-bold text-center mb-10 bg-clip-text"
             variants={fadeUp}
             initial="hidden"
             whileInView="show"
@@ -36,7 +42,11 @@ const ContactSection = ({ viewport }: ContactSectionProps) => {
           </motion.h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto items-stretch">
+        <motion.div variants={item}>
+          <Separator />
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-8 mt-10 max-w-6xl mx-auto items-stretch">
           <motion.div
             initial={prefersReducedMotion ? false : { opacity: 0, x: -24 }}
             whileInView={prefersReducedMotion ? {} : { opacity: 1, x: 0 }}
