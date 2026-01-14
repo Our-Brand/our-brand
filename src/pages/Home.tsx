@@ -6,6 +6,7 @@ import PackageSection from "@/components/sections/PackageSection";
 import ContextSection from "@/components/sections/ContextSection";
 import ClientsSection from "@/components/sections/ClientsSection";
 import ContactSection from "@/components/sections/ContactSection";
+import { useIsMobile } from "@/hooks/useMobile";
 
 type SectionId =
   | "hero"
@@ -15,10 +16,12 @@ type SectionId =
   | "clients"
   | "contact";
 
-function useActiveSection(sectionIds: SectionId[]) {
+function useActiveSection(sectionIds: SectionId[], enabled = true) {
   const [active, setActive] = useState<SectionId>(sectionIds[0]);
 
   useEffect(() => {
+    if (!enabled) return;
+
     const els = sectionIds
       .map((id) => document.getElementById(id))
       .filter(Boolean) as HTMLElement[];
@@ -28,7 +31,7 @@ function useActiveSection(sectionIds: SectionId[]) {
     const getClosestToCenter = () => {
       const centerY = window.innerHeight / 2;
 
-      let bestId = active;
+      let bestId = sectionIds[0];
       let bestDist = Number.POSITIVE_INFINITY;
 
       for (const el of els) {
@@ -45,7 +48,6 @@ function useActiveSection(sectionIds: SectionId[]) {
       setActive(bestId);
     };
 
-    // initial + on scroll/resize
     getClosestToCenter();
 
     let raf = 0;
@@ -62,8 +64,7 @@ function useActiveSection(sectionIds: SectionId[]) {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sectionIds.join("|")]);
+  }, [enabled, sectionIds]);
 
   return active;
 }
@@ -73,21 +74,27 @@ const sectionBase =
 
 const Home = () => {
   const viewport = useMemo(() => ({ once: true, amount: 0.2 }), []);
+  const isMobile = useIsMobile();
 
-  const sections: SectionId[] = useMemo(
+  const sections = useMemo<SectionId[]>(
     () => ["hero", "packages", "context", "team", "clients", "contact"],
     []
   );
 
-  const active = useActiveSection(sections);
+  // Disable active-section tracking on mobile
+  const active = useActiveSection(sections, !isMobile);
 
-  const sectionClass = (id: SectionId) =>
-    [
+  const sectionClass = (id: SectionId) => {
+    // Mobile: no scroll animations, no pointer-events tricks
+    if (isMobile) return "relative";
+
+    return [
       sectionBase,
       active === id
         ? "opacity-100 blur-0 scale-100 pointer-events-auto"
         : "opacity-25 blur-[2px] scale-[0.985] pointer-events-none",
     ].join(" ");
+  };
 
   return (
     <div className="relative min-h-[100svh] overflow-x-hidden">
