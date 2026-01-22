@@ -10,8 +10,12 @@
     "home": "Início",
     "mission": "Missão",
     "team": "Equipa",
+    "projects": "Projetos",
     "careers": "Carreiras",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "more": "Outros",
+    "auth": "Autenticar",
+    "logout": "Sair"
   },
 
   "comingSoon": {
@@ -36,6 +40,77 @@
 
   "cta": {
     "bookCall": "Agendar Chamada"
+  },
+
+  "auth": {
+    "tabs": {
+      "login": "Entrar",
+      "signup": "Criar conta"
+    },
+    "login": {
+      "title": "Bem-vindo de volta",
+      "subtitle": "Inicie sessão para aceder aos seus projetos.",
+      "cta": "Entrar"
+    },
+    "signup": {
+      "title": "Crie a sua conta",
+      "subtitle": "Crie conta para começar a gerar layouts.",
+      "cta": "Criar conta"
+    },
+    "fields": {
+      "name": {
+        "label": "Nome",
+        "placeholder": "Joana Silva"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "voce@exemplo.com"
+      },
+      "password": {
+        "label": "Palavra-passe",
+        "placeholder": "••••••••"
+      }
+    },
+    "disclaimer": "Ao continuar, concorda em armazenar localmente os seus prompts e layouts gerados para este protótipo.",
+    "links": {
+      "privacy": "Política de Privacidade",
+      "terms": "Termos e Condições"
+    },
+    "errors": {
+      "nameRequired": "Por favor, indique o seu nome.",
+      "emailRequired": "Por favor, indique o seu email.",
+      "emailInvalid": "Por favor, indique um endereço de email válido.",
+      "passwordRequired": "Por favor, indique a sua palavra-passe.",
+      "passwordWeak": "A palavra-passe deve ter pelo menos 5 caracteres e incluir maiúsculas, minúsculas e pelo menos um número ou um carácter especial."
+    }
+  },
+
+  "hub": {
+    "badge": "AI Page Builder",
+    "welcome": "Bem-vindo de volta",
+    "loggedInAs": "Sessão iniciada como",
+    "loggedInAsGuest": "Convidado",
+    "logout": "Terminar sessão",
+
+    "start": {
+      "title": "Começar um novo projeto",
+      "subtitle": "Descreva o layout que pretende e vamos criar um novo projeto.",
+      "limitHint": "Até 5 projetos por conta",
+      "placeholder": "ex.: Site de marketing para uma plataforma B2B de analytics com hero, cartões de funcionalidades, preços e formulário de contacto...",
+      "cta": "Iniciar projeto",
+      "creating": "A criar...",
+      "limitReached": "Atingiu o limite máximo de 5 projetos.",
+      "genericError": "Algo correu mal. Tente novamente."
+    },
+
+    "projects": {
+      "title": "Os seus projetos",
+      "subtitle": "Escolha um projeto para continuar a iterar no layout e nos prompts.",
+      "delete": "Eliminar",
+      "cardHint": "Continue a refinar este layout adicionando novos prompts no builder.",
+      "open": "Abrir no builder",
+      "empty": "Ainda não tem projetos.\nUse a caixa de prompts acima para criar o primeiro."
+    }
   },
 
   "hero": {

@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 import HeroSection from "@/components/sections/HeroSection";
 import TeamSection from "@/components/sections/TeamSection";
@@ -75,18 +76,25 @@ const sectionBase =
 const Home = () => {
   const viewport = useMemo(() => ({ once: true, amount: 0.2 }), []);
   const isMobile = useIsMobile();
+  const { hash } = useLocation();
 
   const sections = useMemo<SectionId[]>(
     () => ["hero", "packages", "context", "team", "clients", "contact"],
-    []
+    [],
   );
 
-  // Disable active-section tracking on mobile
-  const active = useActiveSection(sections, !isMobile);
+  const animationsEnabled = !isMobile && !hash;
+
+  const active = useActiveSection(sections, animationsEnabled);
+
+  useEffect(() => {
+    if (!hash) return;
+    const id = hash.replace("#", "");
+    document.getElementById(id)?.scrollIntoView({ behavior: "auto" });
+  }, [hash]);
 
   const sectionClass = (id: SectionId) => {
-    // Mobile: no scroll animations, no pointer-events tricks
-    if (isMobile) return "relative";
+    if (!animationsEnabled) return "relative";
 
     return [
       sectionBase,

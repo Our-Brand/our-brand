@@ -10,8 +10,12 @@
     "home": "Home",
     "mission": "Mission",
     "team": "Team",
+    "projects": "Projects",
     "careers": "Careers",
-    "contact": "Contact"
+    "contact": "Contact",
+    "more": "More",
+    "auth": "Authenticate",
+    "logout": "Log Out"
   },
 
   "comingSoon": {
@@ -36,6 +40,77 @@
 
   "cta": {
     "bookCall": "Book a Call"
+  },
+
+  "auth": {
+    "tabs": {
+      "login": "Login",
+      "signup": "Sign up"
+    },
+    "login": {
+      "title": "Welcome back",
+      "subtitle": "Sign in to access your projects.",
+      "cta": "Login"
+    },
+    "signup": {
+      "title": "Create your account",
+      "subtitle": "Sign up to start generating layouts.",
+      "cta": "Sign up"
+    },
+    "fields": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Jane Doe"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "you@example.com"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "••••••••"
+      }
+    },
+    "disclaimer": "By continuing, you agree to store your prompts and generated layouts locally for this prototype.",
+    "links": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms & Conditions"
+    },
+    "errors": {
+      "nameRequired": "Please enter your name.",
+      "emailRequired": "Please enter your email.",
+      "emailInvalid": "Please enter a valid email address.",
+      "passwordRequired": "Please enter your password.",
+      "passwordWeak": "Password must be at least 5 characters and include uppercase, lowercase, and at least one number or special character."
+    }
+  },
+
+  "hub": {
+    "badge": "AI Page Builder",
+    "welcome": "Welcome back",
+    "loggedInAs": "Logged in as",
+    "loggedInAsGuest": "Guest",
+    "logout": "Logout",
+
+    "start": {
+      "title": "Start a new project",
+      "subtitle": "Describe the layout you want and we'll spin up a new project.",
+      "limitHint": "Up to 5 projects per account",
+      "placeholder": "e.g. Marketing site for a B2B analytics platform with hero, feature cards, pricing and contact form...",
+      "cta": "Start project",
+      "creating": "Creating...",
+      "limitReached": "You've reached the maximum of 5 projects.",
+      "genericError": "Something went wrong. Please try again."
+    },
+
+    "projects": {
+      "title": "Your projects",
+      "subtitle": "Pick a project to continue iterating on its layout and prompts.",
+      "delete": "Delete",
+      "cardHint": "Continue refining this layout by adding new prompts in the builder.",
+      "open": "Open in builder",
+      "empty": "You don't have any projects yet.\nUse the prompt box above to start your first one."
+    }
   },
 
   "hero": {
@@ -70,11 +145,11 @@
     },
     "core": {
       "title": "Core",
-      "description": "Get started with credits to build and iterate.\n\n• 20 credits per month\n• Up to 1 active project\n• Use credits to generate features, pages, and logic\n• Ideal for testing ideas and small builds"
+      "description": "Get started with credits to build and iterate.\n\n• 20 credits per month\n• Up to 5 active project\n• Use credits to generate features, pages, and logic\n• Ideal for testing ideas and small builds"
     },
     "pro": {
       "title": "Pro",
-      "description": "More credits for more serious workers.\n\n• 50 credits per month\n• Up to 2 active projects\n• Faster iteration and larger builds\n• Best for growing products and teams"
+      "description": "More credits for more serious workers.\n\n• 50 credits per month\n• Up to 5 active projects\n• Faster iteration and larger builds\n• Best for growing products and teams"
     },
     "elite": {
       "title": "Elite",
