@@ -18,6 +18,14 @@
     "logout": "Log Out"
   },
 
+  "project": {
+    "pane": {
+      "backToProjects": "Back to projects",
+      "projectLabel": "Project",
+      "userFallback": "User"
+    }
+  },
+
   "comingSoon": {
     "title": "Coming Soon!",
     "description": "Big news are coming soon! Stay Tuned!"
@@ -90,7 +98,6 @@
     "welcome": "Welcome back",
     "loggedInAs": "Logged in as",
     "loggedInAsGuest": "Guest",
-    "logout": "Logout",
 
     "start": {
       "title": "Start a new project",
@@ -110,6 +117,26 @@
       "cardHint": "Continue refining this layout by adding new prompts in the builder.",
       "open": "Open in builder",
       "empty": "You don't have any projects yet.\nUse the prompt box above to start your first one."
+    }
+  },
+
+  "builder": {
+    "sidebar": {
+      "brand": "AI Page Builder",
+      "subtitle": "Describe your layout and we'll generate a React + Tailwind page.",
+      "history": {
+        "title": "Project history",
+        "entry": "entry",
+        "entries": "entries",
+        "copy": "Copy prompt"
+      },
+      "composer": {
+        "placeholder": "e.g. SaaS analytics landing page with hero, feature cards, pricing and contact form..."
+      },
+      "cta": {
+        "generate": "Generate page",
+        "loading": "Generating…"
+      }
     }
   },
 
@@ -154,6 +181,9 @@
     "elite": {
       "title": "Elite",
       "description": "Maximum flexibility for ambitious teams.\n\n• 50 credits per month\n• Up to 5 active projects\n• Built for complex products and scaling\n• Priority access and advanced capabilities"
+    },
+    "badges": {
+      "subscribed": "Subscribed"
     }
   },
 

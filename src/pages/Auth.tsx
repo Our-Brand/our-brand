@@ -117,7 +117,7 @@ const Auth = () => {
       const mockUser = {
         id: String(Date.now()),
         name: name.trim() || undefined,
-        subscription: 0,
+        subscription: 1,
       };
       const mockToken = "prototype-token";
 

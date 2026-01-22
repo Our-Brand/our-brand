@@ -21,10 +21,13 @@ const Nav = () => {
 
   const { user, token, logout } = useAuth();
   const isAuthed = !!token || !!user;
-
   const navItems = [
     { key: "contact", section: "contact", hide: false },
-    { key: "projects", section: "projects", hide: false },
+    {
+      key: "projects",
+      section: "projects",
+      hide: !isAuthed || (user?.subscription ?? 0) === 0,
+    },
     { key: "careers", section: "careers", hide: false },
     { key: "auth", section: "auth", hide: false },
   ] as const;
@@ -100,10 +103,12 @@ const Nav = () => {
   );
 
   const dropdownNavItems = navItems.filter(
-    (item) => item.key === "contact" || item.key === "careers",
+    (item) => (item.key === "contact" || item.key === "careers") && !item.hide,
   );
 
-  const topNavItems = navItems.filter((item) => item.key === "projects");
+  const topNavItems = navItems.filter(
+    (item) => item.key === "projects" && !item.hide,
+  );
 
   const displayName =
     user?.name?.trim() ||

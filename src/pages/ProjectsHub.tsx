@@ -9,11 +9,9 @@ const ProjectsHub = () => {
   const { t } = useLanguage();
   const navigate = useNavigate();
 
-  // Local state (no props)
-  const [userName] = useState<string>(""); // optionally set after auth
-  const [userId] = useState<string>("");
-
-  const [projects, setProjects] = useState<Project[]>([]);
+  const [projects, setProjects] = useState<Project[]>([
+    { id: "123", name: "Test" },
+  ]);
   const [hubPrompt, setHubPrompt] = useState<string>("");
 
   const [loading, setLoading] = useState<boolean>(false);
@@ -23,13 +21,6 @@ const ProjectsHub = () => {
     () => projects.length >= 5,
     [projects],
   );
-
-  const onLogout = () => {
-    // plug your logic here
-    setError("");
-    setHubPrompt("");
-    setProjects([]);
-  };
 
   const onStartProject = async () => {
     setError("");

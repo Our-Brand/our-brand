@@ -15,7 +15,7 @@
     "contact": "Contacto",
     "more": "Outros",
     "auth": "Autenticar",
-    "logout": "Sair"
+    "logout": "Terminar Sessão"
   },
 
   "comingSoon": {
@@ -36,6 +36,14 @@
     "short": "PT",
     "en": "🇬🇧 Inglês (EN)",
     "pt": "🇵🇹 Português (PT)"
+  },
+
+  "project": {
+    "pane": {
+      "backToProjects": "Voltar aos projetos",
+      "projectLabel": "Projeto",
+      "userFallback": "Utilizador"
+    }
   },
 
   "cta": {
@@ -90,7 +98,6 @@
     "welcome": "Bem-vindo de volta",
     "loggedInAs": "Sessão iniciada como",
     "loggedInAsGuest": "Convidado",
-    "logout": "Terminar sessão",
 
     "start": {
       "title": "Começar um novo projeto",
@@ -110,6 +117,26 @@
       "cardHint": "Continue a refinar este layout adicionando novos prompts no builder.",
       "open": "Abrir no builder",
       "empty": "Ainda não tem projetos.\nUse a caixa de prompts acima para criar o primeiro."
+    }
+  },
+
+  "builder": {
+    "sidebar": {
+      "brand": "Construtor de Páginas IA",
+      "subtitle": "Descreva o layout e iremos gerar uma página em React + Tailwind.",
+      "history": {
+        "title": "Histórico do projeto",
+        "entry": "entrada",
+        "entries": "entradas",
+        "copy": "Copiar prompt"
+      },
+      "composer": {
+        "placeholder": "ex.: landing page SaaS de analytics com hero, cards de funcionalidades, preços e formulário de contacto..."
+      },
+      "cta": {
+        "generate": "Gerar página",
+        "loading": "A gerar…"
+      }
     }
   },
 
@@ -154,6 +181,9 @@
     "elite": {
       "title": "Elite",
       "description": "Flexibilidade máxima para equipas ambiciosas.\n\n• 50 créditos por mês\n• Até 5 projetos ativos\n• Pensado para produtos complexos e escaláveis\n• Acesso prioritário e funcionalidades avançadas"
+    },
+    "badges": {
+      "subscribed": "Subscribed"
     }
   },
 

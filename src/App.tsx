@@ -52,6 +52,14 @@ const App = () => (
                 />
                 <Route path="/404" element={<NotFound />} />
 
+                <Route element={<ProtectedRoute />}>
+                  <Route path="/project/:id" element={<ProjectPanel />} />
+                  <Route
+                    path="/project"
+                    element={<Navigate to="/projects" replace />}
+                  />
+                </Route>
+
                 <Route element={<Layout />}>
                   {/* public */}
                   <Route path="/home" element={<Home />} />
@@ -65,11 +73,6 @@ const App = () => (
                   {/* protected */}
                   <Route element={<ProtectedRoute />}>
                     <Route path="/projects" element={<ProjectsHub />} />
-                    <Route path="/project/:id" element={<ProjectPanel />} />
-                    <Route
-                      path="/project"
-                      element={<Navigate to="/projects" replace />}
-                    />
                   </Route>
                 </Route>
 

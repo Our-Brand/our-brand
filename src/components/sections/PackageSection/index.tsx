@@ -4,6 +4,7 @@ import { motion, useInView, type Variants } from "framer-motion";
 import { useLanguage } from "@/hooks/useLanguage";
 import { SkeletonCard, PackageCard } from "@/components/ui/card";
 import { usePackages } from "@/hooks/usePackages";
+import { useAuth } from "@/hooks/useAuth";
 
 const EASE_OUT: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -46,6 +47,7 @@ const titleVariants: Variants = {
 
 const PackageSection = () => {
   const { t } = useLanguage();
+  const { user } = useAuth();
   const { packages, loading } = usePackages();
 
   const spacing = useMemo(() => {
@@ -62,14 +64,17 @@ const PackageSection = () => {
     margin: "-15% 0px -15% 0px",
   });
 
-  const handlePackageClick = (paymentLink: string) => {
+  const handlePackageClick = (paymentLink: string, index: number) => {
+    if (user.subscription >= index + 1) return;
     window.open(paymentLink, "_blank", "noopener,noreferrer");
   };
 
   const handleOnKeyDownPackage = (
     e: React.KeyboardEvent<HTMLDivElement>,
-    paymentLink: string
+    paymentLink: string,
+    index: number,
   ) => {
+    if (user.subscription >= index + 1) return;
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
       window.open(paymentLink, "_blank", "noopener,noreferrer");
@@ -111,15 +116,17 @@ const PackageSection = () => {
               </motion.div>
             </>
           ) : (
-            packages.map((pkg) => (
+            packages.map((pkg, index) => (
               <motion.div
                 key={pkg.id}
                 variants={cardVariants}
-                onClick={() => handlePackageClick(pkg.paymentLink)}
+                onClick={() => handlePackageClick(pkg.paymentLink, index)}
                 className="cursor-pointer"
                 role="button"
                 tabIndex={0}
-                onKeyDown={(e) => handleOnKeyDownPackage(e, pkg.paymentLink)}
+                onKeyDown={(e) =>
+                  handleOnKeyDownPackage(e, pkg.paymentLink, index)
+                }
               >
                 <PackageCard pkg={pkg} t={t} />
               </motion.div>

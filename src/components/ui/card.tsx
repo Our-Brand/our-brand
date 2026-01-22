@@ -1,9 +1,10 @@
-import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { Package } from "@/types/package";
 import { motion, Variants } from "framer-motion";
+import { useAuth } from "@/hooks/useAuth";
+import { ComponentType, forwardRef, HTMLAttributes } from "react";
 
 const cardVariants = cva(
   [
@@ -15,7 +16,7 @@ const cardVariants = cva(
   {
     variants: {
       variant: {
-        default: "ring-white/15 shadow-[0_0_20px_rgba(255,255,255,0.08)]",
+        core: "ring-white/15 shadow-[0_0_20px_rgba(255,255,255,0.08)]",
         pro: "ring-cyan-400/70 shadow-[0_0_30px_rgba(34,211,238,0.25)]",
         elite: "ring-fuchsia-500/60 shadow-[0_0_30px_rgba(217,70,239,0.18)]",
       },
@@ -25,18 +26,18 @@ const cardVariants = cva(
       },
     },
     defaultVariants: {
-      variant: "default",
+      variant: "core",
       interactive: true,
     },
-  }
+  },
 );
 
-export type CardProps = React.HTMLAttributes<HTMLDivElement> &
+export type CardProps = HTMLAttributes<HTMLDivElement> &
   VariantProps<typeof cardVariants> & {
     asChild?: boolean;
   };
 
-const Card = React.forwardRef<HTMLDivElement, CardProps>(
+const Card = forwardRef<HTMLDivElement, CardProps>(
   ({ className, variant, interactive, asChild, ...props }, ref) => {
     const Comp = asChild ? Slot : "div";
 
@@ -47,60 +48,62 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
         {...props}
       />
     );
-  }
+  },
 );
 
 Card.displayName = "Card";
 
-const CardHeader = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("flex flex-col gap-1", className)} {...props} />
-));
+const CardHeader = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn("flex flex-col gap-1", className)}
+      {...props}
+    />
+  ),
+);
 CardHeader.displayName = "CardHeader";
 
-const CardTitle = React.forwardRef<
+const CardTitle = forwardRef<
   HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement>
+  HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
     className={cn(
       "text-base md:text-lg font-semibold tracking-[0.20em] text-white/80",
-      className
+      className,
     )}
     {...props}
   />
 ));
 CardTitle.displayName = "CardTitle";
 
-const CardPrice = React.forwardRef<
+const CardPrice = forwardRef<
   HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement>
+  HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
     className={cn(
       "mt-3 text-4xl md:text-5xl font-semibold text-white",
-      className
+      className,
     )}
     {...props}
   />
 ));
 CardPrice.displayName = "CardPrice";
 
-const CardContent = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("mt-8", className)} {...props} />
-));
+const CardContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn("mt-8", className)} {...props} />
+  ),
+);
 CardContent.displayName = "CardContent";
 
-const CardDescription = React.forwardRef<
+const CardDescription = forwardRef<
   HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement>
+  HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
@@ -110,12 +113,11 @@ const CardDescription = React.forwardRef<
 ));
 CardDescription.displayName = "CardDescription";
 
-const CardFooter = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("mt-10", className)} {...props} />
-));
+const CardFooter = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn("mt-10", className)} {...props} />
+  ),
+);
 CardFooter.displayName = "CardFooter";
 
 function SkeletonCard({ featured }: { featured?: boolean }) {
@@ -180,11 +182,8 @@ export function PackageCard({
   pkg: Package;
   t: (key: string) => string;
 }) {
-  const variant = pkg.isFeatured
-    ? "pro"
-    : pkg.id === "elite"
-    ? "elite"
-    : "default";
+  const { user } = useAuth();
+  const variant = pkg.isFeatured ? "pro" : pkg.id === "3" ? "elite" : "core";
 
   const lines = parseDescription(t(pkg.description));
 
@@ -223,6 +222,12 @@ export function PackageCard({
   }
   flushBullets();
 
+  const subscription = Number(user?.subscription ?? 0);
+  const isSubscribedForThisVariant =
+    (subscription === 1 && variant === "core") ||
+    (subscription === 2 && variant === "pro") ||
+    (subscription === 3 && variant === "elite");
+
   return (
     <Card
       variant={variant}
@@ -233,14 +238,31 @@ export function PackageCard({
         variant === "pro"
           ? "hover:shadow-[0_0_60px_rgba(34,211,238,0.35)] hover:ring-cyan-300/90 md:scale-[1.03]"
           : variant === "elite"
-          ? "hover:shadow-[0_0_60px_rgba(217,70,239,0.30)] hover:ring-fuchsia-400/90"
-          : "hover:shadow-[0_0_45px_rgba(255,255,255,0.16)] hover:ring-white/25",
+            ? "hover:shadow-[0_0_60px_rgba(217,70,239,0.30)] hover:ring-fuchsia-400/90"
+            : "hover:shadow-[0_0_45px_rgba(255,255,255,0.16)] hover:ring-white/25",
       ].join(" ")}
       onClick={() => undefined}
     >
+      {/* Existing featured badge */}
       {pkg.isFeatured && (
         <div className="absolute right-5 top-5 rounded-full border border-cyan-300/40 bg-cyan-500/10 px-3 py-1 text-xs font-medium text-cyan-200">
           {t("packages.items.pro.badge")}
+        </div>
+      )}
+
+      {/* Subscribed badge (only if matches user.subscription and card variant) */}
+      {subscription !== 0 && isSubscribedForThisVariant && (
+        <div
+          className={[
+            "absolute left-5 top-5 rounded-full px-3 py-1 text-xs font-medium",
+            variant === "pro"
+              ? "border border-cyan-300/40 bg-cyan-500/10 text-cyan-200"
+              : variant === "elite"
+                ? "border border-fuchsia-400/40 bg-fuchsia-500/10 text-fuchsia-200"
+                : "border border-white/20 bg-white/5 text-white/80",
+          ].join(" ")}
+        >
+          {t("packages.badges.subscribed")}
         </div>
       )}
 
@@ -310,7 +332,7 @@ function StepCard({
   index: number;
   title: string;
   description: string;
-  Icon: React.ComponentType<{ className?: string }>;
+  Icon: ComponentType<{ className?: string }>;
 }) {
   return (
     <motion.div
