@@ -1,24 +1,21 @@
 [
   {
-    "id": "1",
+    "id": "core",
     "title": "packages.core.title",
     "description": "packages.core.description",
-    "price": 29.99,
-    "paymentLink": "https://buy.stripe.com/5kQ7sMdcTaHLa44dgJg3601"
+    "price": "packages.core.price"
   },
   {
-    "id": "2",
+    "id": "pro",
     "title": "packages.pro.title",
     "description": "packages.pro.description",
-    "price": 89.99,
-    "isFeatured": true,
-    "paymentLink": "https://buy.stripe.com/aFa6oI3Cj037fooa4xg3602"
+    "price": "packages.pro.price",
+    "isFeatured": true
   },
   {
-    "id": "3",
-    "title": "packages.elite.title",
-    "description": "packages.elite.description",
-    "price": 199.99,
-    "paymentLink": "https://buy.stripe.com/bJeeVe1ub9DH7VW1y1g3603"
+    "id": "onDemand",
+    "title": "packages.onDemand.title",
+    "description": "packages.onDemand.description",
+    "price": "packages.onDemand.price"
   }
 ]

@@ -1,10 +1,10 @@
-import { useMemo, useRef } from "react";
-import { motion, useInView, type Variants } from "framer-motion";
+import { useMemo, useRef } from 'react';
+import { motion, useInView, type Variants } from 'framer-motion';
 
-import { useLanguage } from "@/hooks/useLanguage";
-import { SkeletonCard, PackageCard } from "@/components/ui/card";
-import { usePackages } from "@/hooks/usePackages";
-import { useAuth } from "@/hooks/useAuth";
+import { useLanguage } from '@/hooks/useLanguage';
+import { SkeletonCard, PackageCard } from '@/components/ui/card';
+import { usePackages } from '@/hooks/usePackages';
+import { useAuth } from '@/hooks/useAuth';
 
 const EASE_OUT: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -12,9 +12,9 @@ const containerVariants: Variants = {
   hidden: {},
   show: {
     transition: {
-      staggerChildren: 0.1,
-    },
-  },
+      staggerChildren: 0.1
+    }
+  }
 };
 
 const cardVariants: Variants = {
@@ -22,18 +22,18 @@ const cardVariants: Variants = {
     opacity: 0,
     y: 36, // start lower
     scale: 0.98, // tiny scale-in
-    filter: "blur(6px)",
+    filter: 'blur(6px)'
   },
   show: {
     opacity: 1,
     y: 0,
     scale: 1,
-    filter: "blur(0px)",
+    filter: 'blur(0px)',
     transition: {
       duration: 0.5,
-      ease: EASE_OUT,
-    },
-  },
+      ease: EASE_OUT
+    }
+  }
 };
 
 const titleVariants: Variants = {
@@ -41,68 +41,44 @@ const titleVariants: Variants = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.45, ease: EASE_OUT },
-  },
+    transition: { duration: 0.45, ease: EASE_OUT }
+  }
 };
 
 const PackageSection = () => {
   const { t } = useLanguage();
-  const { user } = useAuth();
   const { packages, loading } = usePackages();
 
   const spacing = useMemo(() => {
     return {
-      outer: "px-6 py-16",
-      title: "text-4xl",
-      gap: "gap-8",
+      outer: 'px-6 py-16',
+      title: 'text-4xl',
+      gap: 'gap-8'
     };
   }, []);
 
   const ref = useRef<HTMLElement | null>(null);
   const isInView = useInView(ref, {
     once: false,
-    margin: "-15% 0px -15% 0px",
+    margin: '-15% 0px -15% 0px'
   });
 
-  const handlePackageClick = (paymentLink: string, index: number) => {
-    if (user.subscription >= index + 1) return;
-    window.open(paymentLink, "_blank", "noopener,noreferrer");
-  };
-
-  const handleOnKeyDownPackage = (
-    e: React.KeyboardEvent<HTMLDivElement>,
-    paymentLink: string,
-    index: number,
-  ) => {
-    if (user.subscription >= index + 1) return;
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      window.open(paymentLink, "_blank", "noopener,noreferrer");
-    }
-  };
-
   return (
-    <section
-      id="packages"
-      ref={ref}
-      className={`relative overflow-hidden min-h-screen flex items-center ${spacing.outer}`}
-    >
+    <section id="packages" ref={ref} className={`relative overflow-hidden min-h-screen flex items-center ${spacing.outer}`}>
       <div className="mx-auto w-full max-w-6xl">
         <motion.h2
           variants={titleVariants}
           initial={false}
-          animate={isInView ? "show" : "hidden"}
-          className={`mb-10 font-semibold tracking-tight text-white/95 ${spacing.title}`}
-        >
-          {t("packages.page.title")}
+          animate={isInView ? 'show' : 'hidden'}
+          className={`mb-10 font-semibold tracking-tight text-white/95 ${spacing.title}`}>
+          {t('packages.page.title')}
         </motion.h2>
 
         <motion.div
           variants={containerVariants}
           initial={false}
-          animate={isInView ? "show" : "hidden"}
-          className={`grid grid-cols-1 items-stretch ${spacing.gap} md:grid-cols-3`}
-        >
+          animate={isInView ? 'show' : 'hidden'}
+          className={`grid grid-cols-1 items-stretch ${spacing.gap} md:grid-cols-3`}>
           {loading ? (
             <>
               <motion.div variants={cardVariants}>
@@ -117,17 +93,7 @@ const PackageSection = () => {
             </>
           ) : (
             packages.map((pkg, index) => (
-              <motion.div
-                key={pkg.id}
-                variants={cardVariants}
-                onClick={() => handlePackageClick(pkg.paymentLink, index)}
-                className="cursor-pointer"
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) =>
-                  handleOnKeyDownPackage(e, pkg.paymentLink, index)
-                }
-              >
+              <motion.div key={pkg.id} variants={cardVariants} className="cursor-pointer" role="button" tabIndex={0}>
                 <PackageCard pkg={pkg} t={t} />
               </motion.div>
             ))
