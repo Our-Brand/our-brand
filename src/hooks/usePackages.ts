@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import type { Package } from "@/types/package";
-import { packageService } from "@/services/endpoints/packageService";
+import { useEffect, useState } from 'react';
+import type { Package } from '@/types/package';
+import { packageService } from '@/services/endpoints/packageService';
 
 export const usePackages = () => {
   const [packages, setPackages] = useState<Package[]>([]);

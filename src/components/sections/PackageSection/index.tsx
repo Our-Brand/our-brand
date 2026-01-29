@@ -4,7 +4,6 @@ import { motion, useInView, type Variants } from 'framer-motion';
 import { useLanguage } from '@/hooks/useLanguage';
 import { SkeletonCard, PackageCard } from '@/components/ui/card';
 import { usePackages } from '@/hooks/usePackages';
-import { useAuth } from '@/hooks/useAuth';
 
 const EASE_OUT: [number, number, number, number] = [0.16, 1, 0.3, 1];
 

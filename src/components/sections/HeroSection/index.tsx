@@ -1,19 +1,16 @@
-import heroImg from "@/assets/images/heroimg.png";
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import heroImg from '@/assets/images/heroimg.png';
+import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
 
-import { useLanguage } from "@/hooks/useLanguage";
-import { fadeUp, EASE_OUT } from "@/lib/motion";
-import { scrollToSection } from "@/lib/scroll";
+import { useLanguage } from '@/hooks/useLanguage';
+import { fadeUp, EASE_OUT } from '@/lib/motion';
+import { scrollToSection } from '@/lib/scroll';
 
 const HeroSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16"
-    >
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       <div className="relative z-10 container mx-auto px-4">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-10 md:gap-12">
           <motion.div
@@ -21,17 +18,9 @@ const HeroSection = () => {
             animate="show"
             variants={fadeUp}
             transition={{ delay: 0.12, ease: EASE_OUT }}
-            className="w-full md:max-w-3xl space-y-8"
-          >
-            <motion.h1
-              className="text-5xl md:text-7xl font-bold tracking-tight"
-              initial="hidden"
-              animate="show"
-              variants={fadeUp}
-            >
-              <span className="text-foreground/80 bg-clip-text">
-                {t("hero.title")}
-              </span>
+            className="w-full md:max-w-3xl space-y-8">
+            <motion.h1 className="text-5xl md:text-7xl font-bold tracking-tight" initial="hidden" animate="show" variants={fadeUp}>
+              <span className="text-foreground/80 bg-clip-text">{t('hero.title')}</span>
             </motion.h1>
 
             <motion.p
@@ -39,19 +28,13 @@ const HeroSection = () => {
               initial="hidden"
               animate="show"
               variants={fadeUp}
-              transition={{ delay: 0.08, ease: EASE_OUT }}
-            >
-              {t("hero.subtitle")}
+              transition={{ delay: 0.08, ease: EASE_OUT }}>
+              {t('hero.subtitle')}
             </motion.p>
 
-            <motion.div
-              initial="hidden"
-              animate="show"
-              variants={fadeUp}
-              transition={{ delay: 0.16, ease: EASE_OUT }}
-            >
+            <motion.div initial="hidden" animate="show" variants={fadeUp} transition={{ delay: 0.16, ease: EASE_OUT }}>
               <Button
-                onClick={() => scrollToSection("packages")}
+                onClick={() => scrollToSection('packages')}
                 className="inline-flex items-center justify-center
               h-10 px-6 rounded-full
               text-base font-semibold
@@ -64,9 +47,8 @@ const HeroSection = () => {
               hover:-translate-y-[1px]
               hover:shadow-lg
               active:translate-y-0
-              whitespace-nowrap"
-              >
-                {t("hero.getStarted")}
+              whitespace-nowrap">
+                {t('hero.getStarted')}
               </Button>
             </motion.div>
           </motion.div>
@@ -76,13 +58,12 @@ const HeroSection = () => {
             animate="show"
             variants={fadeUp}
             transition={{ delay: 0.12, ease: EASE_OUT }}
-            className="relative w-full md:max-w-md lg:max-w-lg"
-          >
+            className="relative w-full md:max-w-md lg:max-w-lg">
             <div className="pointer-events-none absolute -inset-8 rounded-full bg-muted/40 blur-3xl" />
 
             <img
               src={heroImg}
-              alt={t("hero.imageAlt")}
+              alt={t('hero.imageAlt')}
               className="relative w-full h-auto object-contain"
               loading="eager"
               decoding="async"
