@@ -1,0 +1,47 @@
+################################################################
+# Private files that we don't want to format
+################################################################
+*.md
+
+################################################################
+# The rest is based on .gitignore as recommended by Prettier
+################################################################
+
+# compiled output
+/dist
+/build
+/tmp
+/out-tsc
+
+# dependencies
+/node_modules
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/connect.lock
+/coverage
+npm-debug.log
+yarn-error.log
+testem.log
+*.log
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Sonar scanner
+.scannerwork

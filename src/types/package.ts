@@ -1,8 +1,7 @@
 export type Package = {
-  id: string;
+  id: 'core' | 'pro' | 'onDemand';
   title: string;
   description: string;
-  price: number;
+  price: string;
   isFeatured?: boolean;
-  paymentLink: string;
 };

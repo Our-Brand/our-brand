@@ -172,15 +172,18 @@
     },
     "core": {
       "title": "Core",
-      "description": "Get started with credits to build and iterate.\n\n• 20 credits per month\n• Up to 5 active project\n• Use credits to generate features, pages, and logic\n• Ideal for testing ideas and small builds"
+      "price": "Free",
+      "description": "Build and iterate for free.\n\n• Preview mode only (no public URL)\n• 50 AI generations / month\n• 1 project maximum\n• 100MB asset storage\n• “Undo AI Changes” recovery only"
     },
     "pro": {
       "title": "Pro",
-      "description": "More credits for more serious workers.\n\n• 50 credits per month\n• Up to 5 active projects\n• Faster iteration and larger builds\n• Best for growing products and teams"
+      "price": "From 500€",
+      "description": "Publish, connect domains, and scale.\n\n• Publish to yoursite.our-brand.io\n• Custom domain + SSL\n• 500 AI generations / month\n• Up to 10 projects\n• 5GB asset storage\n• Priority support & version history"
     },
-    "elite": {
-      "title": "Elite",
-      "description": "Maximum flexibility for ambitious teams.\n\n• 50 credits per month\n• Up to 5 active projects\n• Built for complex products and scaling\n• Priority access and advanced capabilities"
+    "onDemand": {
+      "title": "On Demand",
+      "price": "Contact us",
+      "description": "A collaboration plan for growth.\n\n• Everything included in Pro\n• Marketing strategy & planning\n• Social media management\n• SEO setup\n• Dedicated consulting & collaboration\n\nContact us to collaborate."
     },
     "badges": {
       "subscribed": "Subscribed"

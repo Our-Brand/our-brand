@@ -172,15 +172,18 @@
     },
     "core": {
       "title": "Core",
-      "description": "Comece a construir com créditos para criar e iterar.\n\n• 20 créditos por mês\n• Até 1 projeto ativo\n• Utilize créditos para gerar funcionalidades, páginas e lógica\n• Ideal para testar ideias e pequenos projetos"
+      "price": "Grátis",
+      "description": "Crie e itere gratuitamente. \n\n• Apenas modo de pré-visualização (sem URL pública)\n• 50 gerações de IA / mês\n• Máximo de 1 projeto\n• 100MB de armazenamento de assets\n• Apenas recuperação “Anular alterações da IA”"
     },
     "pro": {
       "title": "Pro",
-      "description": "Mais créditos para trabalho mais sério.\n\n• 50 créditos por mês\n• Até 2 projetos ativos\n• Iteração mais rápida e projetos maiores\n• Ideal para produtos e equipas em crescimento"
+      "price": "Desde 500 €",
+      "description": "Publique, ligue domínios e escale.\n\n• Publicar em site.our-brand.io\n• Domínio personalizado + SSL\n• 500 gerações de IA / mês\n• Até 10 projetos\n• 5GB de armazenamento de assets\n• Suporte prioritário"
     },
-    "elite": {
-      "title": "Elite",
-      "description": "Flexibilidade máxima para equipas ambiciosas.\n\n• 50 créditos por mês\n• Até 5 projetos ativos\n• Pensado para produtos complexos e escaláveis\n• Acesso prioritário e funcionalidades avançadas"
+    "onDemand": {
+      "title": "Sob Consulta",
+      "price": "Contacte-nos",
+      "description": "Um plano de colaboração para crescer.\n\n• Tudo incluído no Pro\n• Estratégia de marketing\n• Gestão de redes sociais\n• Configuração de SEO\n• Colaboração e consultoria\n\nContacte-nos para colaborar."
     },
     "badges": {
       "subscribed": "Subscribed"
